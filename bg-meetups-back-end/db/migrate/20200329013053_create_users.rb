@@ -8,7 +8,6 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.integer :blackbox, array: true, default: []
       t.boolean :vip, default: false
       t.string :default_blackbox_message, default: 'User has denied the invitation'
-      t.string :password
       t.integer :approved, default: 1 
       t.integer :appealed, default: 1
       t.integer :access, default: 2
