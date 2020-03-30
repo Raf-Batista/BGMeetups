@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 2020_03_29_234824) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.integer "whitebox", default: [], array: true
+    t.integer "blackbox", default: [], array: true
+    t.string "default_blackbox_message", default: "User has denied the invitation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -26,16 +29,15 @@ ActiveRecord::Schema.define(version: 2020_03_29_234824) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "interest"
+    t.string "password_digest"
     t.integer "whitebox", default: [], array: true
     t.integer "blackbox", default: [], array: true
     t.boolean "vip", default: false
     t.string "default_blackbox_message", default: "User has denied the invitation"
-    t.string "password"
     t.integer "approved", default: 1
     t.integer "appealed", default: 1
     t.integer "access", default: 2
-    t.string "password_digest"
+    t.integer "reputation", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
