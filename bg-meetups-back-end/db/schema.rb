@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_29_234824) do
+ActiveRecord::Schema.define(version: 2020_03_30_180020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "group_members", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id"
+    t.string "admin"
+    t.string "warning", default: "0"
+    t.boolean "accepted"
+    t.boolean "denied"
+    t.boolean "removed"
+    t.boolean "kicked", default: false
+    t.boolean "receive_email", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "supers", force: :cascade do |t|
     t.string "name"
