@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(version: 2020_05_04_172613) do
   end
 
   create_table "groups", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "status", default: "open"
+    t.string "purpose"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
