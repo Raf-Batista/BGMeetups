@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Group, type: :model do
   describe 'associations' do
-    it {should have_many(:meetups)}
-    it {should have_many(:users).through(:group_members)}
+  #  it {should have_many(:meetups)}
+    it {should have_many(:users).through(:members)}
     it {should belong_to(:user)}
     it {should have_many(:posts)}
   end
@@ -11,5 +11,6 @@ RSpec.describe Group, type: :model do
   describe 'attributes' do 
     it {should validate_presence_of(:purpose)}
     it {should validate_presence_of(:status)}
+    it {should validate_presence_of(:name)}
   end 
 end

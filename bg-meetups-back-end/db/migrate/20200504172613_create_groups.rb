@@ -4,6 +4,7 @@ class CreateGroups < ActiveRecord::Migration[6.0]
       t.integer :user_id 
       t.string :status, default: "open"
       t.string :purpose 
+      t.string :name
 
       t.timestamps
     end

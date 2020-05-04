@@ -1,6 +1,6 @@
-class CreateGroupMembers < ActiveRecord::Migration[6.0]
+class CreateMembers < ActiveRecord::Migration[6.0]
   def change
-    create_table :group_members do |t|
+    create_table :members do |t|
       t.integer :user_id 
       t.integer :group_id 
       t.string :admin 
