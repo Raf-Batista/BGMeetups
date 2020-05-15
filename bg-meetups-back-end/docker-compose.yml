@@ -12,12 +12,12 @@ services:
     environment:
       PGUSER: postgres
       PGPASSWORD: postgres
-      PGDATABASE: database_name
+      PGDATABASE: bg_meetups_back_end_development
       PGPORT: 5432
       PGHOST: db
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/myapp
+      - .:/app
     ports:
       - "3000:3000"
     depends_on:
