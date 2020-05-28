@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 services:
   db:
     image: postgres
@@ -8,6 +8,7 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
   server:
+    container_name: rails
     build:
       context: ./bg-meetups-back-end
     environment:
@@ -18,17 +19,22 @@ services:
       PGHOST: db
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/server
+      - ./bg-meetups-back-end:/app
     ports:
       - "3000:3000"
     depends_on:
       - db
   client:
+    container_name: react
     build:
       context: ./bg-meetups-front-end
     volumes:
-      - .:/client
+      - ./bg-meetups-front-end:/app
+      - /app/node_modules
     ports:
       - "5000:5000"
     stdin_open: true
     tty: true
+    environment: 
+     - CHOKIDAR_USEPOLLING=true
+     - NODE_ENVIRONMENT=development
