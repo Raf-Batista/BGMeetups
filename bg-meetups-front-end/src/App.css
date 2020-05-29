@@ -3,4 +3,13 @@
     width: 50%;
     height: 40%;
   }
+
+  input {
+    margin-top: .5em;
+    margin-bottom: .5em;
+  }
+
+  div nav button {
+    margin-top: .5em;
+  }
 }

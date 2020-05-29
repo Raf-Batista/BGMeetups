@@ -28,7 +28,7 @@ const Navbar = () => {
                 <form class="form-inline my-2 my-lg-0">
                 <input class="form-control form-control-sm mr-sm-2 w-50-sm" type="text" placeholder="username" aria-label="Search" />
                 <input class="form-control form-control-sm mr-sm-2 w-50-sm" type="text" placeholder="password" aria-label="Search" />
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+                <button class="btn btn-outline-success" type="submit">Login</button>
                 </form>
             </div>
             </nav>
