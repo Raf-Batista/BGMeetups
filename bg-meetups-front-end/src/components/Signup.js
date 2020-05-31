@@ -4,6 +4,7 @@ import { useState } from 'react';
 const Signup = () => {
     const [user, setUser] = useState({
         username: '',
+        email: '',
         password: ''
     });
 
@@ -25,6 +26,7 @@ const Signup = () => {
             <form onSubmit={handleSubmit}>
                 <div className='form-group'>
                     <input className='form-control mt-2' type='text' name='username' placeholder='username' onChange={handleChange} value={user.username}/>
+                    <input className='form-control mt-2' type='email' name='email' placeholder='email' onChange={handleChange} value={user.email}/>
                     <input className='form-control mt-2' type='password' name='password' placeholder='password' onChange={handleChange} value={user.password}/>
                     <button className='btn btn-primary mt-2'>Create</button>
                 </div>
