@@ -1,39 +1,46 @@
-import React from 'react';
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from 'react';
 
 const Signup = () => {
-    const [user, setUser] = useState({
-        username: '',
-        email: '',
-        password: ''
-    });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
-    const handleChange = (e) => {
-        setUser({
-          ...user, 
-          [e.target.name]: e.target.value
-        });
-    };
+  return (
+    <div className='container text-center mt-3 signin'>
+      <h2>Signin Below</h2>
+      <div className='mb-2'>
+        <button className=' btn btn-primary text-center'>
+          <FontAwesomeIcon
+            icon={["fab", "facebook"]}
+            size='lg'
+            className='mr-2'
+          />
+          <span>Facebook</span>
+        </button>
+      </div>
+      <div className='mb-2'>
+        <button className='btn btn-success text-center'>
+          <FontAwesomeIcon
+            icon={["fab", "facebook"]}
+            size='lg'
+            className='mr-2'
+          />
+          <span className=''>Twitter </span>
+        </button>
+      </div>
+      <div className='mb-2'>
+        <button className=' btn btn-warning text-center'>
+          <FontAwesomeIcon
+            icon={["fab", "facebook"]}
+            size='lg'
+            className='mr-2'
+          />
+          <span>Google</span>
+        </button>
+      </div>
+    </div>
+  );
+};
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(user)
-    };
-
-    return (
-        <div className='container w-25 mt-3'>
-            <h1>Signup</h1>
-            <form onSubmit={handleSubmit}>
-                <div className='form-group'>
-                    <input className='form-control mt-2' type='text' name='username' placeholder='username' onChange={handleChange} value={user.username}/>
-                    <input className='form-control mt-2' type='email' name='email' placeholder='email' onChange={handleChange} value={user.email}/>
-                    <input className='form-control mt-2' type='password' name='password' placeholder='password' onChange={handleChange} value={user.password}/>
-                    <button className='btn btn-primary mt-2'>Create</button>
-                </div>
-            </form>
-        </div>
-    )
-}
-
-export default Signup
+export default Signup;

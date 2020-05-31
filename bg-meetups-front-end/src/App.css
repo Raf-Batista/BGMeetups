@@ -5,11 +5,19 @@
   }
 
   input {
-    margin-top: .5em;
-    margin-bottom: .5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
   }
 
   div nav button {
-    margin-top: .5em;
+    margin-top: 0.5em;
   }
+}
+
+ul {
+  list-style: none;
+}
+
+.signin button {
+  width: 12em;
 }
