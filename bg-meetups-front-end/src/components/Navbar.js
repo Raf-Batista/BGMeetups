@@ -26,8 +26,8 @@ const Navbar = () => {
                 </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-              
-                <input class="form-control form-control-sm mr-sm-2 w-50-sm" type="text" placeholder="search boardgames" aria-label="Search" />
+                <input class="form-control form-control-sm mr-sm-2 w-50-sm" type="email" placeholder="email" aria-label="Search" />
+                <input class="form-control form-control-sm mr-sm-2 w-50-sm" type="text" placeholder="password" aria-label="Search" />
                 <button class="btn btn-outline-success" type="submit">Login</button>
                 </form>
             </div>
