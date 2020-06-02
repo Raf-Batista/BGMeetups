@@ -44,7 +44,7 @@ const Signup = () => {
           <span className='mr-4'>Twitter</span>
         </button>
       </div>
-      <div className='mb-2'>
+      <div className='mb-3'>
         <button className=' btn btn-warning text-center'>
           <FontAwesomeIcon
             icon={["fab", "facebook"]}
@@ -54,8 +54,8 @@ const Signup = () => {
           <span className='mr-4'>Google</span>
         </button>
       </div>
-      <p className='mt-4'>Or create an account using your email</p>
-      <div className='d-flex justify-content-center mt-2'>
+      <small>Or create an account using your email</small>
+      <div className='d-flex justify-content-center mt-3'>
         <form onSubmit={handleSubmit}>
           <div className='form-group'>
             <input
