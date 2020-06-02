@@ -109,6 +109,9 @@ const Signup = () => {
             <button className='btn mt-2' type='submit'>
               Create Account
             </button>
+            <small>
+              Already have an account? <a href='#'>Login</a>
+            </small>
           </div>
         </form>
       </div>
