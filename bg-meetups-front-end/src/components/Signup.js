@@ -46,7 +46,7 @@ const Signup = () => {
 
       <div className='mt-4'>
         <button
-          className=' btn btn-primary text-center'
+          className=' btn text-center'
           name='facebook'
           onClick={handleClick}
         >
@@ -59,9 +59,9 @@ const Signup = () => {
         </button>
       </div>
       <div className='my-2'>
-        <button className='btn btn-success text-center' onSubmit={handleSubmit}>
+        <button className='btn  text-center' onSubmit={handleSubmit}>
           <FontAwesomeIcon
-            icon={["fab", "facebook"]}
+            icon={["fab", "twitter"]}
             size='lg'
             className='mr-2'
           />
@@ -69,9 +69,9 @@ const Signup = () => {
         </button>
       </div>
       <div className='mb-3'>
-        <button className=' btn btn-warning text-center'>
+        <button className=' btn text-center'>
           <FontAwesomeIcon
-            icon={["fab", "facebook"]}
+            icon={["fab", "google"]}
             size='lg'
             className='mr-2'
           />
@@ -106,7 +106,7 @@ const Signup = () => {
               onChange={handleChange}
               value={user.password}
             />
-            <button className='btn btn-primary mt-2' type='submit'>
+            <button className='btn mt-2' type='submit'>
               Create Account
             </button>
           </div>
