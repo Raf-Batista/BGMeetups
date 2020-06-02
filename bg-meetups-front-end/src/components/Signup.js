@@ -16,8 +16,28 @@ const Signup = () => {
     });
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    // send e.target.innerText to server for OAuth
+    console.log(e.target.innerText);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    createUser();
+  };
+
+  const createUser = async () => {
+    const fetchResponse = await fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+
+    const data = fetchResponse.json();
+    console.log(data);
   };
 
   return (
@@ -25,7 +45,11 @@ const Signup = () => {
       <h2>Sign in Below</h2>
 
       <div className='mt-4'>
-        <button className=' btn btn-primary text-center'>
+        <button
+          className=' btn btn-primary text-center'
+          name='facebook'
+          onClick={handleClick}
+        >
           <FontAwesomeIcon
             icon={["fab", "facebook"]}
             size='lg'
@@ -35,7 +59,7 @@ const Signup = () => {
         </button>
       </div>
       <div className='my-2'>
-        <button className='btn btn-success text-center'>
+        <button className='btn btn-success text-center' onSubmit={handleSubmit}>
           <FontAwesomeIcon
             icon={["fab", "facebook"]}
             size='lg'
@@ -82,6 +106,9 @@ const Signup = () => {
               onChange={handleChange}
               value={user.password}
             />
+            <button className='btn btn-primary' type='submit'>
+              Create Account
+            </button>
           </div>
         </form>
       </div>
