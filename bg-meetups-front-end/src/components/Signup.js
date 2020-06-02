@@ -83,7 +83,7 @@ const Signup = () => {
         <form onSubmit={handleSubmit}>
           <div className='form-group'>
             <input
-              className='form-control form-control-sm'
+              className='form-control'
               name='username'
               type='text'
               placeholder='username'
@@ -91,7 +91,7 @@ const Signup = () => {
               value={user.username}
             />
             <input
-              className='form-control form-control-sm'
+              className='form-control  mt-2'
               name='email'
               type='email'
               placeholder='email'
@@ -99,14 +99,14 @@ const Signup = () => {
               value={user.email}
             />
             <input
-              className='form-control form-control-sm'
+              className='form-control  mt-2'
               name='password'
               type='password'
               placeholder='password'
               onChange={handleChange}
               value={user.password}
             />
-            <button className='btn btn-primary mt-3' type='submit'>
+            <button className='btn btn-primary mt-2' type='submit'>
               Create Account
             </button>
           </div>
