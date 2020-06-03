@@ -33,6 +33,12 @@ ul {
 .navbar {
   background-color: #7d3cff;
 }
+a {
+  color: #7d3cff;
+}
+a:hover {
+  color: gray;
+}
 
 /* Background Tan: #fceed1
 

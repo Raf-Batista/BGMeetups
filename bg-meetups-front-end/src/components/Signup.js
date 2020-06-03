@@ -9,6 +9,8 @@ const Signup = () => {
     password: "",
   });
 
+  const [showLogin, setShowLogin] = useState(false);
+
   const handleChange = (e) => {
     setUser({
       ...user,
@@ -20,6 +22,7 @@ const Signup = () => {
     e.preventDefault();
     // send e.target.innerText to server for OAuth
     console.log(e.target.innerText);
+    setShowLogin(!showLogin);
   };
 
   const handleSubmit = (e) => {
@@ -39,6 +42,45 @@ const Signup = () => {
     const data = fetchResponse.json();
     console.log(data);
   };
+
+  const usernameInputField = (
+    <input
+      className='form-control'
+      name='username'
+      type='text'
+      placeholder='username'
+      onChange={handleChange}
+      value={user.username}
+    />
+  );
+
+  const createButton = (
+    <button className='btn mt-2' type='submit'>
+      Create Account
+    </button>
+  );
+  const loginButton = (
+    <button className='btn mt-2' type='submit'>
+      Login
+    </button>
+  );
+
+  const loginText = (
+    <small>
+      Already have an account?{" "}
+      <a href='#' onClick={handleClick}>
+        Login
+      </a>
+    </small>
+  );
+  const signupText = (
+    <small>
+      Don't have an account?{" "}
+      <a href='#' onClick={handleClick}>
+        Create
+      </a>
+    </small>
+  );
 
   return (
     <div className='container text-center mt-4 signin'>
@@ -78,18 +120,12 @@ const Signup = () => {
           <span className='mr-4'>Google</span>
         </button>
       </div>
-      <small>Or create an account using your email</small>
-      <div className='d-flex justify-content-center mt-3'>
+      {showLogin ? null : <small>Create an account using your email</small>}
+      <div className='d-flex justify-content-center mt-2'>
         <form onSubmit={handleSubmit}>
           <div className='form-group'>
-            <input
-              className='form-control'
-              name='username'
-              type='text'
-              placeholder='username'
-              onChange={handleChange}
-              value={user.username}
-            />
+            {showLogin ? null : usernameInputField}
+
             <input
               className='form-control  mt-2'
               name='email'
@@ -106,12 +142,9 @@ const Signup = () => {
               onChange={handleChange}
               value={user.password}
             />
-            <button className='btn mt-2' type='submit'>
-              Create Account
-            </button>
-            <small>
-              Already have an account? <a href='#'>Login</a>
-            </small>
+            {showLogin ? loginButton : createButton}
+
+            {showLogin ? signupText : loginText}
           </div>
         </form>
       </div>
