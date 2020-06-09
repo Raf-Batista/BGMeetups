@@ -2,37 +2,37 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div>
-      <nav class='navbar navbar-expand-lg navbar-dark'>
-        <a class='navbar-brand' href='/'>
+    <div data-test="component-navbar">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/" data-test="link-navbar">
           BG
         </a>
         <button
-          class='navbar-toggler'
-          type='button'
-          data-toggle='collapse'
-          data-target='#navbarSupportedContent'
-          aria-controls='navbarSupportedContent'
-          aria-expanded='false'
-          aria-label='Toggle navigation'
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <span class='navbar-toggler-icon'></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class='collapse navbar-collapse' id='navbarSupportedContent'>
-          <ul class='navbar-nav mr-auto'>
-            <li class='nav-item'>
-              <a class='nav-link' href='#'>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-test="link-navbar">
                 Groups
               </a>
             </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='#'>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-test="link-navbar">
                 Market
               </a>
             </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='#'>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-test="link-navbar">
                 Account
               </a>
             </li>
