@@ -17,3 +17,10 @@ test('it renders the buttons for oauth login', () => {
 
     expect(buttons.length).toBe(3);
 });
+
+test('it renders the form for email signup', () => {
+    const wrapper = setup();
+    const form = findByTestAttr(wrapper, 'form-signup');
+
+    expect(form.length).toBe(1);
+});
