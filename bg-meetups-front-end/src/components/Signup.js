@@ -90,7 +90,7 @@ const Signup = () => {
         <button
           className=' btn text-center'
           name='facebook'
-          onClick={handleClick}
+          data-test='button-oauth'
         >
           <FontAwesomeIcon
             icon={["fab", "facebook"]}
@@ -101,7 +101,8 @@ const Signup = () => {
         </button>
       </div>
       <div className='my-2'>
-        <button className='btn  text-center' onSubmit={handleSubmit}>
+        <button className='btn  text-center'           data-test='button-oauth'
+>
           <FontAwesomeIcon
             icon={["fab", "twitter"]}
             size='lg'
@@ -111,7 +112,8 @@ const Signup = () => {
         </button>
       </div>
       <div className='mb-3'>
-        <button className=' btn text-center'>
+        <button className=' btn text-center'           data-test='button-oauth'
+      >
           <FontAwesomeIcon
             icon={["fab", "google"]}
             size='lg'
