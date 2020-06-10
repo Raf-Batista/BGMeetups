@@ -21,7 +21,6 @@ const Signup = () => {
   const handleClick = (e) => {
     e.preventDefault();
     // send e.target.innerText to server for OAuth
-    console.log(e.target.innerText);
     setShowLogin(!showLogin);
   };
 
@@ -68,7 +67,7 @@ const Signup = () => {
   const loginText = (
     <small>
       Already have an account?{" "}
-      <a href="#" onClick={handleClick}>
+      <a href="#" onClick={handleClick} data-test="link">
         Login
       </a>
     </small>
@@ -76,7 +75,7 @@ const Signup = () => {
   const signupText = (
     <small>
       Don't have an account?{" "}
-      <a href="#" onClick={handleClick}>
+      <a href="#" onClick={handleClick} data-test="link">
         Create
       </a>
     </small>
@@ -84,7 +83,11 @@ const Signup = () => {
 
   return (
     <div className="container text-center mt-4 signin">
-      <h2>Sign in Below</h2>
+      {showLogin ? (
+        <h2 data-test="heading">Login Below</h2>
+      ) : (
+        <h2 data-test="heading">Signup Below</h2>
+      )}
 
       <div className="mt-4">
         <button
