@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
-    describe 'success' do
+    describe 'successful creation of a user' do
         it 'returns the correct JSON response' do 
             headers = { "ACCEPT" => "application/json; charset=utf-8" }
             post '/users', params: {user: {email: 'test@email.com', username: 'test', password: 'test123'}}
@@ -18,5 +18,13 @@ RSpec.describe "Users", type: :request do
             expect(User.all.size).to eq(1)
         end 
     end
+
+    describe 'unsuccessful creation of user' do 
+        it 'is not saved to the database with blank attributes' do 
+            expect(User.all.size).to eq(0)
+            post '/users', params: {user: {email: '', username: '', password: ''}}
+            expect(User.all.size).to eq(0)
+        end 
+    end 
 
 end
