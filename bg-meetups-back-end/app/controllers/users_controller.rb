@@ -4,7 +4,7 @@ class UsersController < ApplicationController
         render json: {user: user}, status: :created and return if user.save 
         render json: {errors: user.errors.full_messages, status: :precondition_failed} and return if !user.save 
        
-        render json: {errors: "An error occured", status: :not_acceptable} and return
+        render json: {errors: "An error occured", status: :not_acceptable}
     end 
 
     private 
