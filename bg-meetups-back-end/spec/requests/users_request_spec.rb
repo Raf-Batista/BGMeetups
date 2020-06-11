@@ -43,7 +43,15 @@ RSpec.describe "Users", type: :request do
             post '/users', params: {user: {email: 'test@email.com', username: 'test', password: ''}}
             expect(User.all.size).to eq(0)
         end 
-        
-    end 
 
+        it 'returns errors in JSON response' do 
+            headers = { "ACCEPT" => "application/json; charset=utf-8" }
+            post '/users', params: {user: {email: '', username: '', password: ''}}
+            json_response = JSON.parse(response.body)
+
+            expect(response.content_type).to eq("application/json; charset=utf-8")
+            expect(response).to have_http_status(:not_acceptable)
+            expect(json_response.keys).to match(['errors'])
+        end
+    end 
 end
