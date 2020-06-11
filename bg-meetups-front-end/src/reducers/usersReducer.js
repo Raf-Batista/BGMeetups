@@ -1,7 +1,7 @@
 const usersReducer = (state = [], action) => {
   switch (action.type) {
     case "ADD CASE HERE":
-      return [...state, action.book];
+      return [...state, action.payload];
 
     default:
       return state;
