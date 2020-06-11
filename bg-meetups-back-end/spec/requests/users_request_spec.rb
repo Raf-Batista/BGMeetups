@@ -25,6 +25,25 @@ RSpec.describe "Users", type: :request do
             post '/users', params: {user: {email: '', username: '', password: ''}}
             expect(User.all.size).to eq(0)
         end 
+
+        it 'is not saved to the database without an email' do 
+            expect(User.all.size).to eq(0)
+            post '/users', params: {user: {email: '', username: 'test', password: 'test123'}}
+            expect(User.all.size).to eq(0)
+        end 
+
+        it 'is not saved to the database without a username' do 
+            expect(User.all.size).to eq(0)
+            post '/users', params: {user: {email: 'test@email.com', username: '', password: 'test123'}}
+            expect(User.all.size).to eq(0)
+        end 
+
+        it 'is not saved to the database without a password' do 
+            expect(User.all.size).to eq(0)
+            post '/users', params: {user: {email: 'test@email.com', username: 'test', password: ''}}
+            expect(User.all.size).to eq(0)
+        end 
+        
     end 
 
 end
