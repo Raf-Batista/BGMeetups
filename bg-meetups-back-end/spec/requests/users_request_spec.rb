@@ -9,7 +9,7 @@ RSpec.describe "Users", type: :request do
 
             expect(response.content_type).to eq("application/json; charset=utf-8")
             expect(response).to have_http_status(:created)
-            expect(json_response.keys).to match('user')
+            expect(json_response.keys).to match(['user'])
         end 
     end
 
