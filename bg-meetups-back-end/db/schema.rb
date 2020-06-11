@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2020_05_24_032918) do
   end
 
   create_table "supers", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
     t.string "email"
     t.string "password_digest"
     t.integer "whitebox", default: [], array: true
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2020_05_24_032918) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
     t.string "email"
     t.string "password_digest"
     t.integer "whitebox", default: [], array: true

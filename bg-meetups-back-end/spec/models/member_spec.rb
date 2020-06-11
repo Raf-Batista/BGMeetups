@@ -8,7 +8,7 @@ RSpec.describe Member, type: :model do
 
   describe 'validations' do 
     it 'should have a default value of false' do 
-      user = User.create(name: 'test', email: 'test@email.com', password: 'test123' )
+      user = User.create(username: 'test', email: 'test@email.com', password: 'test123' )
       user.groups.create()
     end 
   end 

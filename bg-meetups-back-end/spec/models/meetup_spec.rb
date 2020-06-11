@@ -7,7 +7,7 @@ RSpec.describe Meetup, type: :model do
 
   describe 'attributes' do 
     it 'should have a time with a datetime format' do 
-      user = User.create(name: 'test', email: 'test@email.com', password: 'test123')
+      user = User.create(username: 'test', email: 'test@email.com', password: 'test123')
       group = Group.create(name: 'test', purpose: 'test', user_id: user.id)
       group.meetups.create(meetup_time: '12:00')
 
@@ -16,7 +16,7 @@ RSpec.describe Meetup, type: :model do
     end 
 
     it 'should have an array of those attended' do
-      user = User.create(name: 'test', email: 'test@email.com', password: 'test123')
+      user = User.create(username: 'test', email: 'test@email.com', password: 'test123')
       group = Group.create(name: 'test', purpose: 'test', user_id: user.id)
       group.meetups.create(meetup_time: '12:00')
 
@@ -24,7 +24,7 @@ RSpec.describe Meetup, type: :model do
     end
 
     it 'should have an array of those who did not attend' do
-      user = User.create(name: 'test', email: 'test@email.com', password: 'test123')
+      user = User.create(username: 'test', email: 'test@email.com', password: 'test123')
       group = Group.create(name: 'test', purpose: 'test', user_id: user.id)
       group.meetups.create(meetup_time: '12:00')
 

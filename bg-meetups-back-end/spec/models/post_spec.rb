@@ -7,7 +7,7 @@ RSpec.describe Post, type: :model do
   end 
 
   before(:example) do 
-    @user = User.create(name: 'test', email: 'test@email.com', password: 'test123')
+    @user = User.create(username: 'test', email: 'test@email.com', password: 'test123')
     @user.groups.create(name: 'test', purpose: 'test', user: @user).save
   end 
  
