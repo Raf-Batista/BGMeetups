@@ -10,6 +10,6 @@ export const fetchLoginRequest = (params) => ({
 });
 
 export const fetchLoginSuccess = (user) => ({
-  type: types.FETCH_LOGIN_REQUEST,
+  type: types.FETCH_LOGIN_SUCCESS,
   payload: user,
 });
