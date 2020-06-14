@@ -4,7 +4,12 @@ export const logout = () => ({
   type: types.LOGOUT,
 });
 
-export const fetchLoginRequest = (user) => ({
+export const fetchLoginRequest = (params) => ({
+  type: types.FETCH_LOGIN_REQUEST,
+  payload: params,
+});
+
+export const fetchLoginSuccess = (user) => ({
   type: types.FETCH_LOGIN_REQUEST,
   payload: user,
 });

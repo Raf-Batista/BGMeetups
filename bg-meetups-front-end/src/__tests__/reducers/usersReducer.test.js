@@ -5,10 +5,10 @@ describe("users reducer", () => {
   it("should return initial state", () => {
     expect(usersReducer(undefined, {})).toEqual([]);
   });
-  it("should add users to the state", () => {
-    const users = [{ username: "1" }, { username: "2" }];
-    expect(usersReducer([], { type: types.ADD_USERS, payload: users })).toEqual(
-      users
-    );
-  });
+  // it("should add users to the state", () => {
+  //   const users = [{ username: "1" }, { username: "2" }];
+  //   expect(usersReducer([], { type: types.ADD_USERS, payload: users })).toEqual(
+  //     users
+  //   );
+  // });
 });
