@@ -2,9 +2,13 @@ import userReducer from "../../reducers/userReducer";
 import * as types from "../../constants/user";
 
 describe("user reducer", () => {
-  
+
   it("should return the initial state", () => {
     expect(userReducer(undefined, {})).toEqual({});
+  });
+
+  it('should return true when fetching login request', () => {
+    expect(userReducer({}, {type: types.FETCH_LOGIN_REQUEST})).toEqual({isFetching: true});
   });
 
   it("should add a user to the state when fetch login request is successful", () => {
