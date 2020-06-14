@@ -29,7 +29,7 @@ services:
     build:
       context: ./bg-meetups-front-end
     volumes:
-      - ./bg-meetups-front-end:/app
+      - ./bg-meetups-front-end/src:/app
       - /app/node_modules
     ports:
       - "5000:5000"
