@@ -1,1 +1,1 @@
-export const ADD_USERS = 'ADD_USERS'
+export const FETCH_USERS_REQUEST = 'FETCH_USERS_REQUEST';

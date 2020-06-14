@@ -5,9 +5,9 @@ describe('actions', () => {
     it('should create an action to fetch users', () => {
         const users = [{username: 'test1'}, {username: 'test2'}];
         const expectedAction = {
-            type: types.ADD_USERS,
+            type: types.FETCH_USERS_REQUEST,
             payload: users
         };
-        expect(actions.add_users(users)).toEqual(expectedAction);
+        expect(actions.fetchUsersRequest(users)).toEqual(expectedAction);
     });
 });

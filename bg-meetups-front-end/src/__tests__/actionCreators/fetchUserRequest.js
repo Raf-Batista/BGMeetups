@@ -1,13 +1,13 @@
-import * as actions from '../../actions/loggedIn';
-import * as types from '../../constants/loggedIn';
+import * as actions from '../../actions/user';
+import * as types from '../../constants/user';
 
 describe('actions', () => {
     it('should create an action to log a user in', () => {
         const user = {username: 'test', email: 'test@email.com'}; 
         const expectedAction = {
-            type: types.LOGIN,
+            type: types.FETCH_USER_REQUEST,
             payload: user
         };
-        expect(actions.login(user)).toEqual(expectedAction);
+        expect(actions.fetchUserRequest(user)).toEqual(expectedAction);
     });
 });
