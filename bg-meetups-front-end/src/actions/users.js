@@ -1,6 +1,6 @@
-import ADD_USER from '../constants/users';
+import { ADD_USERS } from '../constants/users';
 
-export const add_user = (user) => ({
-    type: ADD_USER,
+export const add_users = (user) => ({
+    type: ADD_USERS,
     payload: user
 })
