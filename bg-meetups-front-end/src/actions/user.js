@@ -1,10 +1,10 @@
 import * as types from "../constants/user";
 
 export const logout = () => ({
-  type: types.REMOVE_USER,
+  type: types.LOGOUT,
 });
 
-export const fetchUserRequest = (user) => ({
-  type: types.FETCH_USER_REQUEST,
+export const fetchLoginRequest = (user) => ({
+  type: types.FETCH_LOGIN_REQUEST,
   payload: user,
 });

@@ -7,12 +7,10 @@ describe("user reducer", () => {
   });
   it("should add a user to the state", () => {
     const user = { username: "test", email: "test@email.com" };
-    expect(userReducer({}, { type: types.ADD_USER, payload: user })).toEqual(
-      user
-    );
+    expect(userReducer({}, { type: types.LOGIN, payload: user })).toEqual(user);
   });
   it("should remove a user from the state", () => {
     const user = { username: "test", email: "test@email.com" };
-    expect(userReducer({ user }, { type: types.REMOVE_USER })).toEqual({});
+    expect(userReducer({ user }, { type: types.LOGOUT })).toEqual({});
   });
 });
