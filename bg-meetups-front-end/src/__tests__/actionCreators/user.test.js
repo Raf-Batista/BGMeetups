@@ -27,8 +27,8 @@ describe("async actions", () => {
     const store = mockStore({ user: {} });
 
     fetch.mockResponseOnce(JSON.stringify({ data: "12345" }));
-    fetch("https://google.com").then((res) =>
-      res.json().then((res) => console.log(res))
-    );
+    // fetch("https://google.com").then((res) =>
+    //   res.json().then((res) => console.log(res))
+    // );
   });
 });
