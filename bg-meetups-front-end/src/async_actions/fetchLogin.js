@@ -4,7 +4,6 @@ const URL = 'example.com';
 const fetchLogin = (params) => {
   return async (dispatch) => {
     try {
-      // dispatch(actions.fetchLoginRequest());
       const response = await fetch(URL, {
         headers: {
           "Content-Type": "application/json",

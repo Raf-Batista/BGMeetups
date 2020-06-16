@@ -15,17 +15,6 @@ describe("async actions", () => {
   it("creates a request and success action", () => {
     const params = { email: "test@email.com", password: "test123" };
     const user = { username: "test", email: "test@email.com" }
-
-    // const expectedActions = [
-    //   {
-    //     type: types.FETCH_LOGIN_REQUEST,
-    //   },
-    //   {
-    //     type: types.FETCH_LOGIN_SUCCESS,
-    //     payload: user,
-    //   },
-    // ];
-
     const expectedAction = [{type: types.FETCH_LOGIN_SUCCESS, payload: user }]
     const store = mockStore();
 
@@ -34,9 +23,7 @@ describe("async actions", () => {
     return store.dispatch( fetchLogin(params))
     .then(() => {
       const actions = store.getActions()
-      console.log(store.getState())
-      console.log(actions)
       expect(actions).toEqual(expectedAction)
-    })
+    });
   });
 });
