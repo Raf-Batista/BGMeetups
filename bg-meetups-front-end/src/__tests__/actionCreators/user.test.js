@@ -2,6 +2,7 @@ import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import * as actions from "../../actions/user";
 import * as types from "../../constants/user";
+import fetchLogin from "../../async_actions/fetchLogin";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -17,7 +18,6 @@ describe("async actions", () => {
     const expectedActions = [
       {
         type: types.FETCH_LOGIN_REQUEST,
-        payload: { email: "test@email.com", password: "test123" },
       },
       {
         type: types.FETCH_LOGIN_SUCCESS,
@@ -27,8 +27,8 @@ describe("async actions", () => {
     const store = mockStore({ user: {} });
 
     fetch.mockResponseOnce(JSON.stringify({ data: "12345" }));
-    // fetch("https://google.com").then((res) =>
-    //   res.json().then((res) => console.log(res))
-    // );
+    fetch("https://google.com").then((res) =>
+      res.json().then((res) => console.log(res))
+    );
   });
 });

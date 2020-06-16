@@ -1,9 +1,9 @@
+import fetchLogin from "../async_actions/fetchLogin";
+
 const userReducer = (state = {}, action) => {
   switch (action.type) {
-    case "FETCH_LOGIN_REQUEST":
-      return { isFetching: true };
     case "FETCH_LOGIN_SUCCESS":
-      return { user: action.payload, isFetching: false };
+      return { user: action.payload };
     case "LOGOUT":
       return {};
     default:
