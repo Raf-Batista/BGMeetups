@@ -1,5 +1,6 @@
 import * as actions from "../actions/user";
-const URL = 'example.com';
+import { SUCCESS } from "../constants/requestType";
+const URL = "example.com";
 
 const fetchLogin = (params) => {
   return async (dispatch) => {
@@ -15,9 +16,9 @@ const fetchLogin = (params) => {
       dispatch(actions.fetchLoginSuccess(result));
     } catch (error) {
       console.log(error);
-      dispatch(actions.fetchLoginFailure(error));
+      // dispatch(actions.fetchLoginFailure(error));
     }
   };
-}
+};
 
 export default fetchLogin;

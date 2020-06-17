@@ -1,7 +1,8 @@
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import * as actions from "../../actions/user";
-import * as types from "../../constants/user";
+import * as types from "../../constants/users";
+import { SUCCESS } from "../../constants/requestType";
 import fetchLogin from "../../async_actions/fetchLogin";
 
 const middlewares = [thunk];
@@ -14,16 +15,17 @@ describe("async actions", () => {
 
   it("creates a request and success action", () => {
     const params = { email: "test@email.com", password: "test123" };
-    const user = { username: "test", email: "test@email.com" }
-    const expectedAction = [{type: types.FETCH_LOGIN_SUCCESS, payload: user }]
+    const user = { username: "test", email: "test@email.com" };
+    const expectedAction = [
+      { type: `${types.FETCH_LOGIN}${SUCCESS}`, payload: user },
+    ];
     const store = mockStore();
 
     fetch.mockResponseOnce(JSON.stringify(user));
-   
-    return store.dispatch( fetchLogin(params))
-    .then(() => {
-      const actions = store.getActions()
-      expect(actions).toEqual(expectedAction)
+
+    return store.dispatch(fetchLogin(params)).then(() => {
+      const actions = store.getActions();
+      expect(actions).toEqual(expectedAction);
     });
   });
 });
