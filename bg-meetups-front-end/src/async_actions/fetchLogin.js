@@ -1,9 +1,10 @@
 import * as actions from "../actions/user";
-const URL = 'example.com';
+const URL = "example.com";
 
 const fetchLogin = (params) => {
   return async (dispatch) => {
     try {
+      dispatch(actions.fetchLoginRequest());
       const response = await fetch(URL, {
         headers: {
           "Content-Type": "application/json",
@@ -18,6 +19,6 @@ const fetchLogin = (params) => {
       dispatch(actions.fetchLoginFailure(error));
     }
   };
-}
+};
 
 export default fetchLogin;
