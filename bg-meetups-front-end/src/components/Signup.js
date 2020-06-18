@@ -91,14 +91,14 @@ const Signup = () => {
   const override = `
     display: block;
     margin: 0 auto;
-     
+
     border-color: red;
   `;
 
   return (
     <div className="container text-center mt-4 signin">
       {isFetching ? (
-        <PacmanLoader css={override} />
+        <PacmanLoader css={override} color={"#7d3cff"} />
       ) : (
         <div>
           {showLogin ? (
