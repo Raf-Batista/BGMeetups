@@ -13,7 +13,6 @@ const Signup = () => {
     password: "",
   });
 
-  const [showLogin, setShowLogin] = useState(false);
   const isFetching = useSelector((state) => state.loading.FETCH_LOGIN);
   const dispatch = useDispatch();
 
@@ -27,7 +26,7 @@ const Signup = () => {
   const handleClick = (e) => {
     e.preventDefault();
     // send e.target.innerText to server for OAuth
-    setShowLogin(!showLogin);
+    //setShowLogin(!showLogin);
   };
 
   const handleSubmit = (e) => {
@@ -49,63 +48,13 @@ const Signup = () => {
     console.log(data);
   };
 
-  const usernameInputField = (
-    <input
-      className="form-control"
-      name="username"
-      type="text"
-      placeholder="username"
-      onChange={handleChange}
-      value={user.username}
-    />
-  );
-
-  const createButton = (
-    <button className="btn mt-2" type="submit">
-      Create Account
-    </button>
-  );
-  const loginButton = (
-    <button className="btn mt-2" type="submit">
-      Login
-    </button>
-  );
-
-  const loginText = (
-    <small>
-      Already have an account?{" "}
-      <a href="#" onClick={handleClick} data-test="link">
-        Login
-      </a>
-    </small>
-  );
-  const signupText = (
-    <small>
-      Don't have an account?{" "}
-      <a href="#" onClick={handleClick} data-test="link">
-        Create
-      </a>
-    </small>
-  );
-
-  const override = `
-    display: block;
-    margin: 0 auto;
-
-    border-color: red;
-  `;
-
   return (
     <div className="container text-center mt-4 signin">
-      {isFetching ? (
-        <PacmanLoader css={override} color={"#7d3cff"} />
-      ) : (
-        <div>
-          {showLogin ? (
-            <h2 data-test="heading">Login Below</h2>
-          ) : (
+      { isFetching ? <div className='spinner'><PacmanLoader color={"#7d3cff"} /></div> : null }
+        <div className={isFetching ? 'loading' : ''}>
+         
             <h2 data-test="heading">Signup Below</h2>
-          )}
+        
 
           <div className="mt-4">
             <button
@@ -141,11 +90,18 @@ const Signup = () => {
               <span className="mr-4">Google</span>
             </button>
           </div>
-          {showLogin ? null : <small>Create an account using your email</small>}
+          <small>Create an account using your email</small>
           <div className="d-flex justify-content-center mt-2">
             <form onSubmit={handleSubmit} data-test="form-signup">
               <div className="form-group">
-                {showLogin ? null : usernameInputField}
+                <input
+                  className="form-control"
+                  name="username"
+                  type="text"
+                  placeholder="username"
+                  onChange={handleChange}
+                  value={user.username}
+                />
 
                 <input
                   className="form-control  mt-2"
@@ -163,14 +119,19 @@ const Signup = () => {
                   onChange={handleChange}
                   value={user.password}
                 />
-                {showLogin ? loginButton : createButton}
+                <button className="btn mt-2" type="submit">Create Account</button>
 
-                {showLogin ? signupText : loginText}
+    <small>
+      Already have an account?{" "}
+      <a href="/login" onClick={handleClick} data-test="link">
+        Login
+      </a>
+    </small>
               </div>
             </form>
           </div>
         </div>
-      )}
+      
     </div>
   );
 };
