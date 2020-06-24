@@ -1,8 +1,19 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Signup from "../../components/Signup";
+import { Provider } from 'react-redux';
+import * as redux from 'react-redux'
 
-const setup = (props = {}, state = null) => {
+jest.mock("react-redux", () => ({
+  useSelector: jest.fn(fn => fn()),
+  useDispatch: () => jest.fn()
+}));
+
+const spy = jest.spyOn(redux, 'useSelector')
+spy.mockReturnValue({ loading:{FETCH_LOGIN: false} })
+
+
+const setup = (props = {}, state = {ten: 'a'}) => {
   return shallow(<Signup {...props} />);
 };
 
