@@ -3,8 +3,8 @@ import Signup from "./Signup";
 
 const Home = () => {
   return (
-    <div>
-      <Signup />
+    <div className='container text-center mt-5'>
+      <h1>BoardGame Meetups</h1>
     </div>
   );
 };
