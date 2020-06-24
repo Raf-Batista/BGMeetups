@@ -97,6 +97,27 @@ div.spinner {
   opacity: 0.3;
 }
 
+img {
+  height: 35em;
+}
+
+.home-img {
+  width: 40em;
+}
+
+@media only screen  and (min-width : 1824px) {
+  nav {
+    height: 5em;
+    font-size: x-large;
+  }
+  
+  .navbar-brand {
+    font-size: x-large;
+  }  
+}
+
+
+
 /* Background Tan: #fceed1
 
 Purple-y: #7d3cff

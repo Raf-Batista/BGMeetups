@@ -5,7 +5,7 @@ const Navbar = () => {
     <div data-test="component-navbar">
       <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="/" data-test="link-navbar">
-          BG
+          BG Meetups
         </a>
         <button
           class="navbar-toggler"
@@ -19,7 +19,7 @@ const Navbar = () => {
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse mt-1" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
               <a class="nav-link" href="#" data-test="link-navbar">
@@ -38,6 +38,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+    
       </nav>
     </div>
   );
