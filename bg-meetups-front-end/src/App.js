@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import Groups from "./components/Groups";
 
 library.add(fab);
 
@@ -15,9 +16,10 @@ const App = () => {
     <Router>
       <div>
         <Navbar />
-        <Route exact path='/' component={Home} />
-        <Route exact path='/signup' component={Signup} />
-        <Route exact path='/login' component={Login} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/groups" component={Groups} />
       </div>
     </Router>
   );

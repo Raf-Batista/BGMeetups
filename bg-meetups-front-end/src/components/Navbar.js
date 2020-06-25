@@ -22,7 +22,7 @@ const Navbar = () => {
         <div class="collapse navbar-collapse mt-1" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#" data-test="link-navbar">
+              <a class="nav-link" href="/groups" data-test="link-navbar">
                 Groups
               </a>
             </li>
@@ -38,7 +38,6 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-    
       </nav>
     </div>
   );
