@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as types from "../constants/user";
 import * as actions from "../actions/user";
 import PacmanLoader from "react-spinners/PacmanLoader";
+import fetchLogin from "../async_actions/fetchLogin";
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -31,22 +32,9 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //createUser();
-    dispatch(actions.fetchLoginRequest());
+    dispatch(fetchLogin(user));
   };
 
-  const createUser = async () => {
-    const fetchResponse = await fetch("http://localhost:3000/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
-
-    const data = fetchResponse.json();
-    console.log(data);
-  };
   return (
     <div className="container text-center mt-4 signin">
       {isFetching ? (
@@ -112,7 +100,7 @@ const Login = () => {
                 value={user.password}
               />
               <button className="btn mt-2" type="submit">
-                Create Account
+                Login
               </button>
 
               <small className="d-block mt-1">
