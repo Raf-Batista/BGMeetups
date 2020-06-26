@@ -32,7 +32,7 @@ const Navbar = () => {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/login" data-test="link-navbar">
+              <a class="nav-link" href="/account" data-test="link-navbar">
                 Account
               </a>
             </li>

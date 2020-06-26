@@ -6,7 +6,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
-import Login from "./components/Login";
+import Account from "./components/Account";
 import Groups from "./components/Groups";
 import Market from "./components/Market";
 
@@ -19,7 +19,7 @@ const App = () => {
         <Navbar />
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" component={Signup} />
-        <Route exact path="/login" component={Login} />
+        <Route exact path="/account" component={Account} />
         <Route exact path="/groups" component={Groups} />
         <Route exact path="/market" component={Market} />
       </div>
