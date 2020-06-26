@@ -9,6 +9,7 @@ import Signup from "./components/Signup";
 import Account from "./components/Account";
 import Groups from "./components/Groups";
 import Market from "./components/Market";
+import Login from "./components/Login";
 
 library.add(fab);
 
@@ -19,6 +20,7 @@ const App = () => {
         <Navbar />
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/login" component={Login} />
         <Route exact path="/account" component={Account} />
         <Route exact path="/groups" component={Groups} />
         <Route exact path="/market" component={Market} />

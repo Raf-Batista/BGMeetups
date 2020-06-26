@@ -127,12 +127,7 @@ const Signup = () => {
 
               <small className="d-block mt-1">
                 Already have an account?{" "}
-                <a
-                  href="/login"
-                  onClick={handleClick}
-                  data-test="link"
-                  className="d-block"
-                >
+                <a href="/login" data-test="link" className="d-block">
                   Login
                 </a>
               </small>
