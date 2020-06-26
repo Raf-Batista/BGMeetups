@@ -11,7 +11,7 @@ RSpec.describe "Sessions", type: :request do
             expect(response.content_type).to eq("application/json; charset=utf-8")
             expect(response).to have_http_status(:created)
             expect(json_response.keys).to match(['user'])
-            expect(json_response['username']).to be_truthy
+            expect(json_response['user']['username']).to be_truthy
         end 
         
     end 
