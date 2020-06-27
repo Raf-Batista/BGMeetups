@@ -17,6 +17,12 @@ RSpec.describe "Users", type: :request do
             post '/users', params: {user: {email: 'test@email.com', username: 'test', password: 'test123'}}
             expect(User.all.size).to eq(1)
         end 
+
+        it 'creates and attaches an identicon as the user avatar' do 
+            expect(ActiveStorage::Attachment.all.size).to eq(0)
+            post '/users', params: {user: {email: 'test@email.com', username: 'test', password: 'test123'}}
+            expect(ActiveStorage::Attachment.all.size).to eq(1)
+        end 
     end
 
     describe 'unsuccessful creation of user' do 
