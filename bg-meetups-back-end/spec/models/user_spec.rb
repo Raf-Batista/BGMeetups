@@ -9,14 +9,21 @@ RSpec.describe User, type: :model do
   end  
 
   describe 'default attributes' do 
+
     before(:example) do 
       @user = User.create(username: 'test', email: 'test@email.com', password: 'test')
     end 
+
     it 'has a default value for whitebox' do 
       expect(@user.whitebox.class).to eq(Array)
     end 
+
     it 'has a default value for blackbox' do 
       expect(@user.whitebox.class).to eq(Array)
+    end 
+
+    it 'has a default value for board_games' do 
+      expect(@user.board_games.class).to eq(Array)
     end 
 
     it 'has a default value of false for vip' do 

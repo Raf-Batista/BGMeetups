@@ -13,6 +13,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.integer :appealed, default: 1
       t.integer :access, default: 2
       t.integer :reputation, default: 0
+      t.jsonb :board_games, array: true, default: []
       t.timestamps
     end
   end

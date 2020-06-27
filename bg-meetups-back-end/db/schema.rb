@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2020_05_24_032918) do
     t.integer "appealed", default: 1
     t.integer "access", default: 2
     t.integer "reputation", default: 0
+    t.jsonb "board_games", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
