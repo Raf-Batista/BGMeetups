@@ -12,8 +12,9 @@ const loadingReducer = (state = {}, action) => {
   };
 
   export default loadingReducer;
+ 
   /* 
-    Link to article for this loading reducer pattern 
+    Link to article for this loading/error reducer pattern 
 
     https://medium.com/stashaway-engineering/react-redux-tips-better-way-to-handle-loading-flags-in-your-reducers-afda42a804c6
   */
