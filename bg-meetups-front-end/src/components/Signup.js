@@ -27,7 +27,6 @@ const Signup = () => {
   const handleClick = (e) => {
     e.preventDefault();
     // send e.target.innerText to server for OAuth
-    //setShowLogin(!showLogin);
   };
 
   const handleSubmit = (e) => {
