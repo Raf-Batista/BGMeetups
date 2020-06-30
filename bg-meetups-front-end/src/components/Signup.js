@@ -33,6 +33,11 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(fetchSignup(user));
+    setUser({
+      username: "",
+      email: "",
+      password: "",
+    });
   };
 
   return (
@@ -90,6 +95,7 @@ const Signup = () => {
                 placeholder="username"
                 onChange={handleChange}
                 value={user.username}
+                required
               />
 
               <input
@@ -99,6 +105,7 @@ const Signup = () => {
                 placeholder="email"
                 onChange={handleChange}
                 value={user.email}
+                required
               />
               <input
                 className="form-control  mt-2"
@@ -107,6 +114,7 @@ const Signup = () => {
                 placeholder="password"
                 onChange={handleChange}
                 value={user.password}
+                required
               />
               <button className="btn mt-2" type="submit">
                 Create Account
