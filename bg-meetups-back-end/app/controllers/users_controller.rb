@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     def create # Refactor 
         user = User.new(user_params)
         # attach an identicon as a user's avatar if they are created
+        binding.pry
         user.avatar.attach(data: Identicon.data_url_for(user.username)) if user.valid?
         render json: {user: user}, status: :created and return if user.save
         render json: {errors: user.errors.full_messages}, status: :not_acceptable and return if !user.save
@@ -12,6 +13,6 @@ class UsersController < ApplicationController
     private 
 
     def user_params
-        params.require(:user).permit(:email, :username, :password)
+        params.permit(:email, :username, :password)
     end 
 end
