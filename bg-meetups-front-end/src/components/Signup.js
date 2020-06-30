@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as types from "../constants/user";
 import * as actions from "../actions/user";
 import PacmanLoader from "react-spinners/PacmanLoader";
+import fetchSignup from "../async_actions/fetchSignup";
 
 const Signup = () => {
   const [user, setUser] = useState({
@@ -13,7 +14,7 @@ const Signup = () => {
     password: "",
   });
 
-  const isFetching = useSelector((state) => state.loading.FETCH_LOGIN);
+  const isFetching = useSelector((state) => state.loading.FETCH_SIGNUP);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -31,8 +32,7 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //createUser();
-    dispatch(actions.fetchLoginRequest());
+    dispatch(fetchSignup(user));
   };
 
   return (
