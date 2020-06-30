@@ -4,7 +4,7 @@ const URL = `${process.env.REACT_APP_URL}/users`;
 const fetchSignup = (params) => {
     return async (dispatch) => {
         
-        dispatch(actions.fetchSignupSuccess());
+        dispatch(actions.fetchSignupRequest());
         
         try {
             const response = await fetch(URL, {

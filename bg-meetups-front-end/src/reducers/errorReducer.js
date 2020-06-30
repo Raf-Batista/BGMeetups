@@ -3,7 +3,6 @@ const errorReducer = (state = {}, action) => {
     const matches = /(.*)_(REQUEST|FAILURE)/.exec(type);
   
     if (!matches) return state;
-    console.log(matches)
     const [, requestName, requestState] = matches;
     return {
       ...state,
