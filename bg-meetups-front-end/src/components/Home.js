@@ -7,7 +7,6 @@ import bg4 from "../assets/images/bg4.jpg";
 import bg5 from "../assets/images/bg5.jpg";
 
 const Home = () => {
-  console.log(bg1);
   return (
     <div className="container text-center mt-5 home-img">
       <div
