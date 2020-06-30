@@ -14,6 +14,20 @@ export const fetchLoginFailure = (error) => ({
   payload: error,
 });
 
+export const fetchSignupequest = () => ({
+  type: types.FETCH_SIGNUP_REQUEST,
+});
+
+export const fetchSignupuccess = (user) => ({
+  type: types.FETCH_SIGNUP_SUCCESS
+  payload: user,
+});
+
+export const fetchSignupailure = (error) => ({
+  type: types.FETCH_SIGNUP_FAILURE,
+  payload: error,
+});
+
 export const logout = () => ({
   type: types.LOGOUT,
 });

@@ -35,19 +35,6 @@ const Signup = () => {
     dispatch(actions.fetchLoginRequest());
   };
 
-  const createUser = async () => {
-    const fetchResponse = await fetch("http://localhost:3000/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
-
-    const data = fetchResponse.json();
-    console.log(data);
-  };
-
   return (
     <div className="container text-center mt-4 signin">
       {isFetching ? (
