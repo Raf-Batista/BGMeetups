@@ -1,5 +1,15 @@
 import * as actions from "../actions/user";
+import { toast } from 'react-toastify';
+
 const URL = `${process.env.REACT_APP_URL}/users`;
+
+const displayErrors = (errorsArray) => {
+    errorsArray.forEach(error => {
+        toast.error(error, {
+            position: toast.POSITION.TOP_CENTER
+        });
+    });
+};
 
 const fetchSignup = (params) => {
     return async (dispatch) => {
@@ -19,7 +29,9 @@ const fetchSignup = (params) => {
 
             if(!result.errors) return dispatch(actions.fetchSignupSuccess(result));
 
-            dispatch(actions.fetchSignupFailure(result.errors))
+            dispatch(actions.fetchSignupFailure(result.errors));
+            displayErrors(result.errors);
+            console.log(result.errors)
         
         } catch (error) {
             console.log(error)
