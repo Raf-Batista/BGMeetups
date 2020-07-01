@@ -31,6 +31,9 @@ gem 'identicon'
 # Needed to attach an identicon to a user
 gem 'active_storage_base64'
 
+# Serializer to handle the what data is returned from controllers as JSON
+gem 'active_model_serializers'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
