@@ -27,11 +27,13 @@ const fetchSignup = (params) => {
 
             const result = await response.json();
 
-            if(!result.errors) return dispatch(actions.fetchSignupSuccess(result));
+            if(!result.errors) {
+                toast.success("Account successfully created", {position: toast.POSITION.TOP_CENTER});
+                return dispatch(actions.fetchSignupSuccess(result));
+            }
 
             dispatch(actions.fetchSignupFailure(result.errors));
             displayErrors(result.errors);
-            console.log(result.errors)
         
         } catch (error) {
             console.log(error)
