@@ -10,6 +10,8 @@ import Account from "./components/Account";
 import Groups from "./components/Groups";
 import Market from "./components/Market";
 import Login from "./components/Login";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 library.add(fab);
 
@@ -18,6 +20,7 @@ const App = () => {
     <Router>
       <div>
         <Navbar />
+        <ToastContainer />
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
