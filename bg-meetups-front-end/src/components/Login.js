@@ -7,7 +7,7 @@ import * as actions from "../actions/user";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import fetchLogin from "../async_actions/fetchLogin";
 
-const Login = () => {
+const Login = (props) => {
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -29,9 +29,10 @@ const Login = () => {
     // send e.target.innerText to server for OAuth
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(fetchLogin(user));
+    await dispatch(fetchLogin(user));
+    props.history.push('/account')
   };
 
   return (
