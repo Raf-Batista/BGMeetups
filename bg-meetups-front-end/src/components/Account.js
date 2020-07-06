@@ -3,15 +3,18 @@ import Login from "./Login";
 import { useSelector, useDispatch } from "react-redux";
 
 const Account = (props) => {
-  const loggedIn = useSelector((state) => state.loading);
+  const user = useSelector((state) => state.user);
 
   return (
     <div>
-      {/* If not logged in, "loading" in the store will be an empty object */}
-      {JSON.stringify(loggedIn) === "{}" ? (
+      {/* If not logged in, "user" in the store will be an empty object */}
+      {JSON.stringify(user) === "{}" ? (
         props.history.push("/login")
       ) : (
-        <h1>Account</h1>
+        <div>
+          <h1>Account</h1>
+
+        </div>
       )}
     </div>
   );
