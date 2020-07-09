@@ -10,11 +10,13 @@ module CoreModules::JsonWebToken
     def self.decode(token)
       begin
       body = JWT.decode(token, JWT_SECRET)
-        if body then HashWithIndifferentAccess.new body[0] else return false end
+      HashWithIndifferentAccess.new body[0] if body
       rescue JWT::ExpiredSignature, JWT::VerificationError => e
         return false
       rescue JWT::DecodeError, JWT::VerificationError => e
         return false
       end
+
+      return false
     end
   end
