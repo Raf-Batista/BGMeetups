@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import Signup from "../../components/Signup";
 import { Provider } from 'react-redux';
-import * as redux from 'react-redux'
+import * as redux from 'react-redux';
 
 jest.mock("react-redux", () => ({
   useSelector: jest.fn(fn => fn()),
