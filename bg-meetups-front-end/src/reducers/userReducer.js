@@ -4,7 +4,7 @@ const userReducer = (state = {}, action) => {
       return action.payload;
     case "FETCH_LOGIN_SUCCESS":
       return action.payload;
-    case "LOGOUT":
+    case "FETCH_LOGOUT_SUCCESS":
       return {};
     default:
       return state;
