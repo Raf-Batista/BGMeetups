@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
       def destroy
         if current_user 
           cookies.delete(:jwt) 
-          render json: {status: 'OK', code: 200} and return
+          render json: "You have successfully logged out", status: :ok and return
         end
           
-        render json: {status: 'session not found', code: 404}
+        render json: {error: "Session Not Found"}, status: :not_found
       end
     
       def create
@@ -23,9 +23,22 @@ class SessionsController < ApplicationController
               avatar: url_for(login_hash[:avatar])
             }, status: :created, adapter: :json and return
           else
-            render json: {status: 'incorrect email or password', code: 422} and return 
+            render json: {error: 'Incorrect Email or Password'}, status: :unprocessable_entity and return 
           end
         
-        render json: {status: 'specify email address and password', code: 422}
+        render json: {error: 'Please Enter an Email and Password'}, status: :unprocessable_entity
+      end 
+
+      def logged_in? 
+        user = current_user
+        if user 
+          render json: {
+            email: user.email, 
+            username: user.username, 
+            avatar: url_for(user.avatar)
+          }, status: :ok and return
+        end 
+
+        render json: {error: "Not Logged In"}, status: :unprocessable_entity
       end 
 end
