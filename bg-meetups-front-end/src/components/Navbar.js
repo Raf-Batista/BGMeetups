@@ -1,14 +1,24 @@
 import React from "react";
+import { useSelector, useDispatch } from 'react-redux';
+import fetchLogout from '../async_actions/fetchLogout';
+import { useHistory } from "react-router-dom";
 
 const Navbar = () => {
+  const loggedIn = useSelector(state => state.user);
+  const dispatch = useDispatch();
+  let history = useHistory();
+  const handleClick = () => {
+    dispatch(fetchLogout());
+    history.push('/');
+  }
   return (
     <div data-test="component-navbar">
-      <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="/" data-test="link-navbar">
+      <nav className="navbar navbar-expand-lg navbar-dark">
+        <a className="navbar-brand" href="/" data-test="link-navbar">
           BG Meetups
         </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
@@ -16,26 +26,33 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse mt-1" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/groups" data-test="link-navbar">
+        <div className="collapse navbar-collapse mt-1" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <a className="nav-link" href="/groups" data-test="link-navbar">
                 Groups
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/market" data-test="link-navbar">
+            <li className="nav-item">
+              <a className="nav-link" href="/market" data-test="link-navbar">
                 Market
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/account" data-test="link-navbar">
+            <li className="nav-item">
+              <a className="nav-link" href="/account" data-test="link-navbar">
                 Account
               </a>
             </li>
+            {JSON.stringify(loggedIn) !== '{}' ? 
+            <li className="nav-item">
+              <a className="nav-link" href="#" onClick={handleClick} data-test="link-navbar">
+                Logout
+              </a>
+            </li> : null 
+            }
           </ul>
         </div>
       </nav>
