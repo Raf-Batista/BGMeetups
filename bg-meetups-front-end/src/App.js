@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -11,11 +11,21 @@ import Groups from "./components/Groups";
 import Market from "./components/Market";
 import Login from "./components/Login";
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.css';
+import { useSelector, useDispatch } from 'react-redux';
+import fetchCurrentUser from './async_actions/fetchCurrentUser';
 
 library.add(fab);
 
 const App = () => {
+
+  const currentUser = useSelector(state => state.user)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if(JSON.stringify(currentUser) === '{}') dispatch(fetchCurrentUser()); 
+  });
+
   return (
     <Router>
       <div>
