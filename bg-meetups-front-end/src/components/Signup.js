@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector, useDispatch } from "react-redux";
-import * as types from "../constants/user";
-import * as actions from "../actions/user";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import fetchSignup from "../async_actions/fetchSignup";
 
-const Signup = () => {
+const Signup = (props) => {
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -15,7 +13,13 @@ const Signup = () => {
   });
 
   const isFetching = useSelector((state) => state.loading.FETCH_SIGNUP);
+  const loggedIn = useSelector(state => state.user);
   const dispatch = useDispatch();
+  let { history } = props
+
+  useEffect(() => {
+    if(JSON.stringify(loggedIn) !== '{}') history.push('/');
+  });
 
   const handleChange = (e) => {
     setUser({
