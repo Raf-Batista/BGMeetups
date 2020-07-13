@@ -24,6 +24,6 @@ describe("user reducer", () => {
 
   it("should remove a user from the state", () => {
     const user = { username: "test", email: "test@email.com" };
-    expect(userReducer({ user }, { type: types.LOGOUT })).toEqual({});
+    expect(userReducer({ user }, { type: types.FETCH_LOGOUT_SUCCESS })).toEqual({});
   });
 });

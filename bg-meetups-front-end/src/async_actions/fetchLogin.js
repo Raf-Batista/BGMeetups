@@ -1,15 +1,19 @@
 import * as actions from "../actions/user";
+import { toast } from 'react-toastify';
+
 const URL = `${process.env.REACT_APP_URL}/sessions`;
 
 const fetchLogin = (params) => {
   return async (dispatch) => {
     
     dispatch(actions.fetchLoginRequest());
-    
+
     try {
       const response = await fetch(URL, {
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
+          "Accept": "application/json",
         },
         method: "POST",
         body: JSON.stringify(params),
@@ -17,8 +21,11 @@ const fetchLogin = (params) => {
       
       const result = await response.json();
       
-      if(!result.error) return dispatch(actions.fetchLoginSuccess(result));
-      
+      if(!result.error) {
+        toast.success("Welcome Back!", {position: toast.POSITION.TOP_CENTER});
+        return dispatch(actions.fetchLoginSuccess(result));
+      }
+
       dispatch(actions.fetchLoginFailure(result.error));
     
     } catch (error) {

@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector, useDispatch } from "react-redux";
-import * as types from "../constants/user";
-import * as actions from "../actions/user";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import fetchLogin from "../async_actions/fetchLogin";
 
@@ -15,7 +13,13 @@ const Login = (props) => {
   });
 
   const isFetching = useSelector((state) => state.loading.FETCH_LOGIN);
+  const currentUser = useSelector(state => state.user);
   const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    if(JSON.stringify(currentUser) !== '{}') props.history.push('/account');
+  });
 
   const handleChange = (e) => {
     setUser({
@@ -29,9 +33,9 @@ const Login = (props) => {
     // send e.target.innerText to server for OAuth
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
-    await dispatch(fetchLogin(user));
+     dispatch(fetchLogin(user));
     props.history.push('/account')
   };
 

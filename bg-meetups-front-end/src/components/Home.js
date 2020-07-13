@@ -1,5 +1,4 @@
 import React from "react";
-import Signup from "./Signup";
 import bg1 from "../assets/images/bg1.jpg";
 import bg2 from "../assets/images/bg2.jpg";
 import bg3 from "../assets/images/bg3.jpg";
