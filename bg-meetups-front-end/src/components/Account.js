@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import Private from './Private';
+import Public from './Public';
 
  
 const Account = (props) => {
@@ -16,29 +18,6 @@ const Account = (props) => {
   const handleClick = () => {
     setActive(!active)
   }
-
-  const privateProfile = <div>
-     <span className='d-block'>
-            This is your account information. Only visible to you.
-          </span>
-          <span className='d-block'>
-          Note: Changes to your email and password will change the information you use to login
-          </span>
-          <div className='mt-4'>Email Address</div>
-          <div className='mt-2'>{user.email}</div>
-          <div className='mt-2'>Password</div>
-          <div className='mt-2'>**********</div>
-    </div>
-  const publicProfile = <div>
-    <span className='d-block'>Profile Avatar</span>
-          <img src={user.avatar} alt="avatar" style={{width:'128px', height:'128px'}}/>
-          <span className='d-block'>Username</span>
-          <h2>{user.username}</h2>
-          <span>Manage My Created Groups</span>
-          <h1>MY GROUPS</h1>
-          <span>View Joined Groups</span>
-          <h1>JOINED GROUPS</h1>
-  </div>
  
   return (
    
@@ -57,7 +36,7 @@ const Account = (props) => {
             </li>
           </ul>
 
-          {active ? privateProfile : publicProfile}
+          {active ? <Private user={user} /> : <Public user={user} />}
           
           <span>Edit Account</span>
         </div>
