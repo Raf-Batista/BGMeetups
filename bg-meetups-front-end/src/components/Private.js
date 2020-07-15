@@ -9,20 +9,36 @@ const Private = (props) => {
         setShowEditForm(!showEditForm)
     };
 
-    const form = <form className='mt-4'>
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
+    const handleChange = (e) => {
+        setUserForm({
+            ...user,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const form = <form className='mt-4' onSubmit={handleSubmit}>
         <div className='form-group'>
             <label className='d-block my-2'>Email Address</label>
-            <input type='text' placeholder={userForm.email}/>
+            <input name='email' onChange={handleChange} type='text' placeholder={userForm.email} required/>
             <label className='d-block my-2'>Password</label>
-            <input type='text' placeholder={userForm.password}/>
+            <input name='password' onChange={handleChange} type='text' placeholder={userForm.password} required/>
+            <div>
+              <button className='pointer d-inline mx-2 mt-2 border-0 bg-transparent' type='submit'>Save</button>
+              <div className='pointer d-inline' onClick={handleClick}>Cancel</div>
+            </div>
         </div>
     </form>
 
     const privateInfo = <div>
-         <div className='mt-4'>Email Address</div>
-          <div className='mt-2'>{user.email}</div>
-          <div className='mt-2'>Password</div>
-          <div className='mt-2'>**********</div>
+      <div className='mt-4'>Email Address</div>
+      <div className='mt-2'>{user.email}</div>
+      <div className='mt-2'>Password</div>
+      <div className='mt-2'>**********</div>
+      <div className='pointer' onClick={handleClick}>Edit</div>
     </div>
 
     return (
@@ -34,7 +50,6 @@ const Private = (props) => {
           Note: Changes to your email and password will change the information you use to login
           </span>
           {showEditForm ? form : privateInfo}
-          <div className='pointer' onClick={handleClick}>Edit</div>
         </div>
     )
 }
