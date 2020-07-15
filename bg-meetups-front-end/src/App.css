@@ -126,6 +126,15 @@ div.spinner {
 a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
   cursor: pointer;
 }
+
+.active {
+  border-bottom: 3px solid #7d3cff;
+}
+
+body {
+  background-color: #e6e5e7;
+}
+
 /* Background Tan: #fceed1
 
 Purple-y: #7d3cff
