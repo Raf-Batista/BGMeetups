@@ -37,8 +37,6 @@ const Account = (props) => {
           </ul>
 
           {active ? <Private user={user} /> : <Public user={user} />}
-          
-          <span>Edit Account</span>
         </div>
   );
 };
