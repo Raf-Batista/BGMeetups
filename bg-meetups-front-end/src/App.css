@@ -123,6 +123,9 @@ div.spinner {
   }
 }
 
+a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+  cursor: pointer;
+}
 /* Background Tan: #fceed1
 
 Purple-y: #7d3cff
