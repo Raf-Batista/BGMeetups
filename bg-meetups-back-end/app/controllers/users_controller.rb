@@ -24,6 +24,26 @@ class UsersController < ApplicationController
         render json: {errors: "An error occured"}, status: :not_acceptable
     end 
 
+    def update 
+        user = current_user
+        if user.id == params[:id].to_i  
+            user.update(user_params)
+        end 
+
+        if user.changed?  
+            render json: {
+                email: user.email, 
+                username: user.username, 
+                avatar: url_for(user.avatar),
+                id: user.id
+              }, status: :ok and return
+        end 
+
+        binding.pry
+
+        render json: {errors: user.errors.full_messages}, status: :not_acceptable
+    end 
+
     private 
 
     def user_params
