@@ -94,6 +94,7 @@ const Login = (props) => {
                 placeholder="email"
                 onChange={handleChange}
                 value={user.email}
+                required
               />
               <input
                 className="form-control  mt-2"
@@ -102,6 +103,7 @@ const Login = (props) => {
                 placeholder="password"
                 onChange={handleChange}
                 value={user.password}
+                required
               />
               <button className="btn mt-2" type="submit">
                 Login
