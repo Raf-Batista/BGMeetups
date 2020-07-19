@@ -4,6 +4,8 @@ const userReducer = (state = {}, action) => {
       return action.payload;
     case "FETCH_LOGIN_SUCCESS":
       return action.payload;
+      case "FETCH_EDIT_SUCCESS":
+      return action.payload;
     case "FETCH_LOGOUT_SUCCESS":
       return {};
     default:
