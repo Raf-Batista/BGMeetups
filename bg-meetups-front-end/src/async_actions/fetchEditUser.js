@@ -3,13 +3,13 @@ import { toast } from 'react-toastify';
 
 const URL = `${process.env.REACT_APP_URL}/users`;
 
-const displayErrors = (errorsArray) => {
-    errorsArray.forEach(error => {
-        toast.error(error, {
-            position: toast.POSITION.TOP_CENTER
-        });
-    });
-};
+// const displayErrors = (errorsArray) => {
+//     errorsArray.forEach(error => {
+//         toast.error(error, {
+//             position: toast.POSITION.TOP_CENTER
+//         });
+//     });
+// };
 
 const fetchEditUser = (params) => {
     return async (dispatch) => {
@@ -34,7 +34,10 @@ const fetchEditUser = (params) => {
                 dispatch(actions.fetchEditSuccess(result));
             }
 
-            displayErrors(result.error);
+            toast.error(result.error, {
+                position: toast.POSITION.TOP_CENTER
+            });
+
             dispatch(actions.fetchEditFailure(result.error));
         } catch (error) {
             console.log(error);
