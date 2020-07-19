@@ -28,6 +28,20 @@ export const fetchSignupFailure = (error) => ({
   payload: error,
 });
 
+export const fetchEditRequest = () => ({
+  type: types.FETCH_EDIT_REQUEST,
+});
+
+export const fetchEditSuccess = (updatedUser) => ({
+  type: types.FETCH_EDIT_SUCCESS,
+  payload: updatedUser,
+});
+
+export const fetchEditFailure = (error) => ({
+  type: types.FETCH_EDIT_FAILURE,
+  payload: error,
+});
+
 export const fetchLogoutRequest = () => ({
   type: types.FETCH_LOGOUT_REQUEST,
 });
