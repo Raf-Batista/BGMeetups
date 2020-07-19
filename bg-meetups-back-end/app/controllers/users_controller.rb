@@ -26,11 +26,8 @@ class UsersController < ApplicationController
 
     def update 
         user = current_user
-        if user.id == params[:id].to_i  
-            user.update(user_params)
-        end 
 
-        if user.changed?  
+        if (user.id == params[:id].to_i) && user.update(user_params)
             render json: {
                 email: user.email, 
                 username: user.username, 
@@ -38,8 +35,6 @@ class UsersController < ApplicationController
                 id: user.id
               }, status: :ok and return
         end 
-
-        binding.pry
 
         render json: {errors: user.errors.full_messages}, status: :not_acceptable
     end 
