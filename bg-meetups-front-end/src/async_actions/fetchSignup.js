@@ -3,13 +3,13 @@ import { toast } from 'react-toastify';
 
 const URL = `${process.env.REACT_APP_URL}/users`;
 
-const displayErrors = (errorsArray) => {
-    errorsArray.forEach(error => {
-        toast.error(error, {
-            position: toast.POSITION.TOP_CENTER
-        });
-    });
-};
+// const displayErrors = (errorsArray) => {
+//     errorsArray.forEach(error => {
+//         toast.error(error, {
+//             position: toast.POSITION.TOP_CENTER
+//         });
+//     });
+// };
 
 const fetchSignup = (params) => {
     return async (dispatch) => {
@@ -32,8 +32,11 @@ const fetchSignup = (params) => {
                 return dispatch(actions.fetchSignupSuccess(result));
             }
 
-            dispatch(actions.fetchSignupFailure(result.errors));
-            displayErrors(result.errors);
+            toast.error(result.error, {
+                position: toast.POSITION.TOP_CENTER
+              });
+
+            dispatch(actions.fetchLoginFailure(result.error));
         
         } catch (error) {
             console.log(error)
