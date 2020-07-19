@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector, useDispatch } from "react-redux";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import fetchLogin from "../async_actions/fetchLogin";
+import { NavLink } from 'react-router-dom';
 
 const Login = (props) => {
   const [user, setUser] = useState({
@@ -111,9 +112,9 @@ const Login = (props) => {
 
               <small className="d-block mt-1">
                 Don't have an account?{" "}
-                <a href="/signup" data-test="link" className="d-block">
+                <NavLink to="/signup" data-test="link" className="d-block">
                   Create an account
-                </a>
+                </NavLink>
               </small>
             </div>
           </form>
