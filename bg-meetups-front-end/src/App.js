@@ -27,18 +27,21 @@ const App = () => {
   });
 
   return (
-    <Router>
-      <div>
+    <div>
+      <Router>
         <Navbar />
         <ToastContainer />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/account" component={Account} />
-        <Route exact path="/groups" component={Groups} />
-        <Route exact path="/market" component={Market} />
-      </div>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/account" component={Account} />
+          <Route exact path="/groups" render={(routeProps) => <Groups {...routeProps} />} />
+          <Route exact path="/market" component={Market} />
+        </Switch>
     </Router>
+    </div>
+
   );
 };
 
