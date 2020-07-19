@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import fetchEditUser from '../async_actions/fetchEditUser.js';
 
 const Private = (props) => {
-    const {user} = props;
+    const {history, user} = props
     const [showEditForm, setShowEditForm] = useState(false);
-    const [userForm, setUserForm] = useState({email: user.email, password: '********'})
+    const [userForm, setUserForm] = useState({email: '', password: ''});
+    const dispatch = useDispatch();
 
     const handleClick = () => {
         setShowEditForm(!showEditForm)
@@ -11,11 +14,18 @@ const Private = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        let updatedUser = {}
+        updatedUser.id = user.id
+        if(userForm.email) updatedUser.email = userForm.email;
+        if(userForm.password) updatedUser.password = userForm.password;
+        dispatch(fetchEditUser(updatedUser));
+        setUserForm({email: '', password: ''}); 
+        history.push('/account');
     }
 
     const handleChange = (e) => {
         setUserForm({
-            ...user,
+            ...userForm,
             [e.target.name]: e.target.value
         });
     };
@@ -23,9 +33,9 @@ const Private = (props) => {
     const form = <form className='mt-4' onSubmit={handleSubmit}>
         <div className='form-group'>
             <label className='d-block my-2'>Email Address</label>
-            <input name='email' onChange={handleChange} type='text' placeholder={userForm.email} required/>
+            <input name='email' onChange={handleChange} type='text' placeholder={user.email} value={userForm.email}/>
             <label className='d-block my-2'>Password</label>
-            <input name='password' onChange={handleChange} type='text' placeholder={userForm.password} required/>
+            <input name='password' onChange={handleChange} type='password' placeholder={'*******'} value={userForm.password} />
             <div>
               <button className='pointer d-inline mx-2 mt-2 border-0 bg-transparent' type='submit'>Save</button>
               <div className='pointer d-inline' onClick={handleClick}>Cancel</div>
