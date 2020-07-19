@@ -35,7 +35,8 @@ class SessionsController < ApplicationController
           render json: {
             email: user.email, 
             username: user.username, 
-            avatar: url_for(user.avatar)
+            avatar: url_for(user.avatar),
+            id: user.id
           }, status: :ok and return
         end 
 
