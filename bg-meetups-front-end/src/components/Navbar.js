@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import fetchLogout from '../async_actions/fetchLogout';
-import { useHistory } from "react-router-dom";
+import { NavLink ,useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
@@ -16,9 +16,9 @@ const Navbar = () => {
   return (
     <div data-test="component-navbar">
       <nav className="navbar navbar-expand-lg navbar-dark">
-        <a className="navbar-brand" href="/" data-test="link-navbar">
+        <NavLink exact className="navbar-brand" to="/" data-test="link-navbar">
           BG Meetups
-        </a>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -34,25 +34,25 @@ const Navbar = () => {
         <div className="collapse navbar-collapse mt-1" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <a className="nav-link" href="/groups" data-test="link-navbar">
+              <NavLink exact className="nav-link" to="/groups" data-test="link-navbar">
                 Groups
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/market" data-test="link-navbar">
+              <NavLink exact className="nav-link" to="/market" data-test="link-navbar">
                 Market
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/account" data-test="link-navbar">
+              <NavLink exact className="nav-link" to="/account" data-test="link-navbar">
                 Account
-              </a>
+              </NavLink>
             </li>
             {JSON.stringify(loggedIn) !== '{}' ? 
             <li className="nav-item">
-              <a className="nav-link" href="#" onClick={handleClick} data-test="link-navbar">
+              <span className="nav-link" onClick={handleClick} data-test="link-navbar">
                 Logout
-              </a>
+              </span>
             </li> : null 
             }
           </ul>
