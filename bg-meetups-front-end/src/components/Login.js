@@ -35,7 +35,7 @@ const Login = (props) => {
 
   const handleSubmit =  (e) => {
     e.preventDefault();
-     dispatch(fetchLogin(user));
+    dispatch(fetchLogin(user));
     props.history.push('/account')
   };
 
