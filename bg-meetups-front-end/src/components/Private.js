@@ -20,7 +20,7 @@ const Private = (props) => {
         if(userForm.password) updatedUser.password = userForm.password;
         dispatch(fetchEditUser(updatedUser));
         setUserForm({email: '', password: ''}); 
-        history.push('/account');
+        setShowEditForm(!showEditForm)
     }
 
     const handleChange = (e) => {
