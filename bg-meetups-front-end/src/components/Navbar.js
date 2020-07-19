@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import fetchLogout from '../async_actions/fetchLogout';
-import { NavLink ,useHistory } from "react-router-dom";
+import { NavLink , useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
