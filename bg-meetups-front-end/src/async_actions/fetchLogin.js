@@ -3,6 +3,14 @@ import { toast } from 'react-toastify';
 
 const URL = `${process.env.REACT_APP_URL}/sessions`;
 
+const displayErrors = (errorsArray) => {
+  errorsArray.forEach(error => {
+      toast.error(error, {
+          position: toast.POSITION.TOP_CENTER
+      });
+  });
+};
+
 const fetchLogin = (params) => {
   return async (dispatch) => {
     
@@ -26,6 +34,7 @@ const fetchLogin = (params) => {
         return dispatch(actions.fetchLoginSuccess(result));
       }
 
+      displayErrors(result.error);
       dispatch(actions.fetchLoginFailure(result.error));
     
     } catch (error) {
