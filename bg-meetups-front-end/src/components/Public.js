@@ -74,8 +74,6 @@ const Public = (props) => {
           <span className='mt-1'>{user.username}</span>
         </div>
         <button className='border-0 bg-transparent mt-1' onClick={handleClick}>Edit</button>
-        <div className=''>Manage My Created Groups</div>
-        <div>View Joined Groups</div>
     </div>
 
     return (

@@ -60,6 +60,8 @@ const Private = (props) => {
           Note: Changes to your email and password will change the information you use to login
           </span>
           {showEditForm ? form : privateInfo}
+          <div className='my-2'>Manage My Created Groups</div>
+          <div>Manage My Marketplace</div>
         </div>
     )
 }
