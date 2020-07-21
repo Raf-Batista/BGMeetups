@@ -17,14 +17,18 @@ const fetchEditUser = (params) => {
         dispatch(actions.fetchEditRequest());
 
         try {
+            let formData = new FormData();
+            if(params.avatar) formData.append('avatar', params.avatar);
+            if(params.username) formData.append('username', params.username);
+            
             const response = await fetch(`${URL}/${params.id}`, {
                 credentials: "include",
-                headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                },
+                // headers: {
+                // "Content-Type": "application/json",
+                // "Accept": "application/json",
+                // },
                 method: "PATCH",
-                body: JSON.stringify(params),
+                body: formData//JSON.stringify(params),
             });
 
             const result = await response.json();
