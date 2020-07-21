@@ -21,7 +21,7 @@ const Private = (props) => {
         dispatch(fetchEditUser(updatedUser));
         setUserForm({email: '', password: ''}); 
         setShowEditForm(!showEditForm)
-    }
+    };
 
     const handleChange = (e) => {
         setUserForm({
@@ -30,15 +30,15 @@ const Private = (props) => {
         });
     };
 
-    const form = <form className='mt-4' onSubmit={handleSubmit}>
+    const form = <form className='mt-4 mx-lg-auto ml-sm-4' onSubmit={handleSubmit}>
         <div className='form-group'>
             <label className='d-block my-2'>Email Address</label>
-            <input name='email' onChange={handleChange} type='text' placeholder={user.email} value={userForm.email}/>
+            <input name='email' onChange={handleChange} type='email' placeholder={user.email} value={userForm.email} />
             <label className='d-block my-2'>Password</label>
             <input name='password' onChange={handleChange} type='password' placeholder={'*******'} value={userForm.password} />
             <div>
               <button className='pointer d-inline mx-2 mt-2 border-0 bg-transparent' type='submit'>Save</button>
-              <div className='pointer d-inline' onClick={handleClick}>Cancel</div>
+              <button className='pointer d-inline border-0 bg-transparent' onClick={handleClick}>Cancel</button>
             </div>
         </div>
     </form>
@@ -48,7 +48,7 @@ const Private = (props) => {
       <div className='mt-2'>{user.email}</div>
       <div className='mt-2'>Password</div>
       <div className='mt-2'>**********</div>
-      <div className='pointer' onClick={handleClick}>Edit</div>
+      <button className='pointer border-0 bg-transparent' onClick={handleClick}>Edit</button>
     </div>
 
     return (
