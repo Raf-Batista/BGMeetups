@@ -8,7 +8,6 @@ RSpec.describe "Users", type: :request do
             json_response = JSON.parse(response.body)
 
             expect(response.content_type).to eq("application/json; charset=utf-8")
-          #  raise User.last.inspect
             expect(response).to have_http_status(:created)
             expect(json_response.keys).to match(['email', 'username', 'avatar'])
         end 
@@ -61,4 +60,17 @@ RSpec.describe "Users", type: :request do
             expect(json_response.keys).to match(['errors'])
         end
     end 
+
+    describe 'can successfully update' do 
+        it 'returns correct JSON response' do 
+            headers = { "ACCEPT" => "application/json; charset=utf-8" }
+            post '/users', params: {email: 'test@email.com', username: 'test', password: 'test123'}
+            patch "/users/#{User.last.id}", params: {id: User.last.id, email: 'I_AM_CHANGED@email.com', username: 'test'}
+            json_response = JSON.parse(response.body)
+
+            expect(response.content_type).to eq("application/json; charset=utf-8")
+            expect(response).to have_http_status(:ok)
+            expect(json_response["email"]).to eq('I_AM_CHANGED@email.com')
+        end 
+    end     
 end
