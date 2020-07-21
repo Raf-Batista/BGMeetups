@@ -1,6 +1,6 @@
 @media screen and (max-width: 576px) {
   form {
-    width: 50%;
+    /* width: 50%; */
     height: 40%;
   }
 
@@ -11,6 +11,10 @@
 
   div nav button {
     margin-top: 0.5em;
+  }
+
+  .img-form {
+    margin-left: 15em;
   }
 }
 
@@ -59,6 +63,10 @@ div.spinner {
   .home-img {
     width: 20em;
   }
+
+  .img-form {
+    margin-left: 4em;
+  }
 }
 
 @media only screen and (min-width: 590px) {
@@ -73,6 +81,10 @@ div.spinner {
   .home-img {
     width: 50em;
   }
+
+  .img-form {
+    margin-left: 4em;
+  }
 }
 
 /* iPads (portrait) ----------- */
@@ -80,6 +92,7 @@ div.spinner {
   div.spinner {
     margin-left: 18em;
   }
+  
 }
 
 @media only screen and (min-device-width: 991px) and (max-device-width: 1024px) and (orientation: portrait) {
@@ -92,12 +105,17 @@ div.spinner {
   div.spinner {
     margin-left: 25em;
   }
+
 }
 
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1224px) {
   div.spinner {
     margin-left: 30em;
+  }
+
+  .img-form {
+    margin-left: 6em;
   }
 }
 
