@@ -5,8 +5,9 @@ import fetchEditUser from '../async_actions/fetchEditUser.js';
 const Private = (props) => {
     const {history, user} = props
     const [showEditForm, setShowEditForm] = useState(false);
-    const [userForm, setUserForm] = useState({email: '', password: ''});
+    const [userForm, setUserForm] = useState({email: '', password: '', id: user.id});
     const dispatch = useDispatch();
+    
 
     const handleClick = () => {
         setShowEditForm(!showEditForm)
@@ -14,12 +15,8 @@ const Private = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let updatedUser = {}
-        updatedUser.id = user.id
-        if(userForm.email) updatedUser.email = userForm.email;
-        if(userForm.password) updatedUser.password = userForm.password;
-        dispatch(fetchEditUser(updatedUser));
-        setUserForm({email: '', password: ''}); 
+        dispatch(fetchEditUser(userForm));
+        setUserForm({...userForm, email: '', password: ''}); 
         setShowEditForm(!showEditForm)
     };
 
