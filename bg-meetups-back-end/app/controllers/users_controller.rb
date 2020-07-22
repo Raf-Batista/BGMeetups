@@ -12,11 +12,7 @@ class UsersController < ApplicationController
         if user.save 
             token = CoreModules::JsonWebToken.encode({user_id: user.id}, 4.hours.from_now)
             cookies.signed[:jwt] = {value: token, httponly: true}
-            render json: {
-                email: user.email, 
-                username: user.username, 
-                avatar: url_for(user.avatar)
-            }, status: :created and return
+            render json: user, status: :created and return
         else 
             render json: {errors: user.errors.full_messages}, status: :not_acceptable and return
         end  
@@ -27,12 +23,7 @@ class UsersController < ApplicationController
     def update 
         user = current_user
             if (user.id == params[:id].to_i) && user.update(user_params)
-            render json: {
-                email: user.email, 
-                username: user.username, 
-                avatar: url_for(user.avatar),
-                id: user.id
-              }, status: :ok and return
+            render json: user, status: :ok and return
         end 
 
         render json: {errors: user.errors.full_messages}, status: :not_acceptable
