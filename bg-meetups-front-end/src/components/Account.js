@@ -9,7 +9,7 @@ import PacmanLoader from "react-spinners/PacmanLoader";
  
 const Account = (props) => {
   const user = useSelector((state) => state.user);  
-  const isFetching = useSelector((state) => state.loading.FETCH_LOGIN);
+  const isFetching = useSelector((state) => state.loading.FETCH_EDIT);
   const [active, setActive] = useState(true);
   
   useEffect(() => {
