@@ -13,13 +13,7 @@ class User < ApplicationRecord
     def self.handle_login(email, password)
       user = User.find_by(email: email.downcase)
       if user && user.authenticate(password)
-        user_info = {}
-        user_info[:token] = CoreModules::JsonWebToken.encode({user_id: user.id}, 4.hours.from_now)
-        user_info[:id] = user.id
-        user_info[:username] = user.username
-        user_info[:email] = user.email
-        user_info[:avatar] = user.avatar
-        return user_info
+        return user
       end
         
      return false
