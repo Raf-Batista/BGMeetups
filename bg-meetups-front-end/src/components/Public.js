@@ -5,8 +5,8 @@ import fetchEditUser from '../async_actions/fetchEditUser.js';
 const Public = (props) => {
     const {history, user} = props
     const [showEditForm, setShowEditForm] = useState(false);
-    const [userForm, setUserForm] = useState({username: '', imagePreview: ''});
-    const [avatar, setAvatar] = useState(null)
+    const [userForm, setUserForm] = useState({username: '', imagePreview: '', id: user.id, avatar: null});
+   // const [avatar, setAvatar] = useState(null)
     const dispatch = useDispatch();
 
     const handleClick = () => {
@@ -22,19 +22,16 @@ const Public = (props) => {
 
     const handleImageUpload = (e) => {
         const uploadedAvatar = e.target.files[0];
-        setAvatar(uploadedAvatar);
-        setUserForm({...userForm, imagePreview: URL.createObjectURL(uploadedAvatar)});
+        // setAvatar(uploadedAvatar);
+         setUserForm({...userForm, imagePreview: URL.createObjectURL(uploadedAvatar), avatar: uploadedAvatar});
+
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let updatedUser = {}
-        updatedUser.id = user.id
-        if(userForm.username) updatedUser.username = userForm.username;
-        if(avatar) updatedUser.avatar = avatar;
-        dispatch(fetchEditUser(updatedUser));
-        setUserForm({username: '', imagePreview: ''}); 
-        setAvatar(null);
+        dispatch(fetchEditUser(userForm));
+        setUserForm({...userForm, username: '', imagePreview: '', avatar: null}); 
+      //  setAvatar(null);
         setShowEditForm(!showEditForm)
 
         /**
@@ -47,7 +44,7 @@ const Public = (props) => {
     const form = <form onSubmit={handleSubmit}>
     <div className='form-group'>
         <div>
-            <img src={user.avatar} alt="avatar" style={{width:'128px', height:'128px'}} className='mb-3' />
+            <img src={`${process.env.REACT_APP_URL}/${user.avatar}`} alt="avatar" style={{width:'128px', height:'128px'}} className='mb-3' />
         </div>
         <div>
             <input name='avatar' onChange={handleImageUpload} type='file' className='img-form' accept="image/png, image/jpeg" filename={userForm.username}/>
@@ -67,7 +64,7 @@ const Public = (props) => {
 
     const publicInfo = <div>
         <div>
-          <img src={user.avatar} alt="avatar" style={{width:'128px', height:'128px'}} className='mb-3'/>
+          <img src={`${process.env.REACT_APP_URL}/${user.avatar}`} alt="avatar" style={{width:'128px', height:'128px'}} className='mb-3'/>
         </div>
        <div>
         <span className='d-block'>Username</span>
