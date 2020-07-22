@@ -18,8 +18,11 @@ const fetchEditUser = (params) => {
 
         try {
             let formData = new FormData();
+            formData.append('id', params.id)
             if(params.avatar) formData.append('avatar', params.avatar);
             if(params.username) formData.append('username', params.username);
+            if(params.email) formData.append('email', params.email);
+            if(params.password) formData.append('password', params.password);
             
             const response = await fetch(`${URL}/${params.id}`, {
                 credentials: "include",
