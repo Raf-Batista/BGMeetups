@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import Account from "./components/Account";
 import Groups from "./components/Groups";
-import Market from "./components/Market";
+import MarketContainer from "./containers/MarketContainer";
 import Login from "./components/Login";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -37,7 +37,7 @@ const App = () => {
           <Route exact path="/login" component={Login} />
           <Route exact path="/account" component={Account} />
           <Route exact path="/groups" render={(routeProps) => <Groups {...routeProps} />} />
-          <Route exact path="/market" component={Market} />
+          <Route exact path="/market" component={MarketContainer} />
         </Switch>
     </Router>
     </div>
