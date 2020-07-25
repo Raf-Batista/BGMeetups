@@ -9,6 +9,7 @@ class User < ApplicationRecord
     has_many :posts
     has_many :messages
     has_one_base64_attached :avatar
+    has_many :boardgames
 
     def self.handle_login(email, password)
       user = User.find_by(email: email.downcase)
