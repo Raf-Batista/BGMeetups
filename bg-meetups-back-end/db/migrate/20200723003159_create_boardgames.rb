@@ -4,7 +4,7 @@ class CreateBoardgames < ActiveRecord::Migration[6.0]
       t.string :name
       t.integer :user_id
       t.text :description
-      t.decimal :price
+      t.decimal :price, :precision => 8, :scale => 2
 
       t.timestamps
     end
