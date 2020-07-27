@@ -1,6 +1,6 @@
 const usersReducer = (state = [], action) => {
   switch (action.type) {
-    case "ADD_USERS":
+    case "FETCH_USERS_SUCCESS":
       return action.payload;
 
     default:
