@@ -14,16 +14,19 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector, useDispatch } from 'react-redux';
 import fetchCurrentUser from './async_actions/fetchCurrentUser';
+import fetchUsers from './async_actions/fetchUsers';
 
 library.add(fab);
 
 const App = () => {
 
-  const currentUser = useSelector(state => state.user)
-  const dispatch = useDispatch()
+  const currentUser = useSelector(state => state.user);
+  const users = useSelector(state => state.users)
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if(JSON.stringify(currentUser) === '{}') dispatch(fetchCurrentUser()); 
+    if(JSON.stringify(users) === '[]') dispatch(fetchUsers()); 
   });
 
   return (
