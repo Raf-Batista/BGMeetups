@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
     def update 
         user = current_user
-            if (user.id == params[:id].to_i) && user.update(user_params)
+        if (user.id == user_params[:id].to_i) && user.update(user_params)
             render json: user, status: :ok and return
         end 
 
@@ -32,6 +32,6 @@ class UsersController < ApplicationController
     private 
 
     def user_params
-        params.permit(:email, :username, :password, :avatar)
+        params.permit(:id, :email, :username, :password, :avatar)
     end 
 end
