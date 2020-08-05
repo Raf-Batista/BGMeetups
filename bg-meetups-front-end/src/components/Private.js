@@ -90,12 +90,6 @@ const Private = (props) => {
         use to login
       </span>
       {showEditForm ? form : privateInfo}
-      <NavLink to="/my-groups" className="my-2 border-0 bg-transparent d-block">
-        My Groups
-      </NavLink>
-      <NavLink to="/my-market" className="border-0 bg-transparent d-block">
-        My Marketplace
-      </NavLink>
     </div>
   );
 };
