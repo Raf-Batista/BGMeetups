@@ -11,6 +11,7 @@ import Groups from "./components/Groups";
 import MarketContainer from "./containers/MarketContainer";
 import MarketEditContainer from "./containers/MarketEditContainer";
 import Login from "./components/Login";
+import Heading from "./components/Heading";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -32,6 +33,7 @@ const App = () => {
   return (
     <div>
       <Router>
+        <Heading />
         <Navbar />
         <ToastContainer />
         <Switch>
