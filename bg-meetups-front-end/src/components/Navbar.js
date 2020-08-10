@@ -36,7 +36,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink exact className="nav-link" to="#" data-test="link-navbar">
+              <NavLink exact className="nav-link" to="/meetups" data-test="link-navbar">
                 Meetups
               </NavLink>
             </li>
