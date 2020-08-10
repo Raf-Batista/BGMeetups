@@ -94,9 +94,19 @@ const Heading = () => {
                            <NavLink 
                             exact 
                             className="nav-link" 
-                            to="#" 
+                            to="/my-groups" 
                             data-test="link-navbar">
                             My Groups
+                          </NavLink>
+                         </li>
+
+                         <li onClick={handleClick}>
+                           <NavLink 
+                            exact 
+                            className="nav-link" 
+                            to="/messages" 
+                            data-test="link-navbar">
+                            Messages
                           </NavLink>
                          </li>
             
@@ -104,7 +114,7 @@ const Heading = () => {
                            <NavLink 
                             exact 
                             className="nav-link" 
-                            to="/account" 
+                            to="/logout" 
                             data-test="link-navbar">
                             Logout
                           </NavLink>
