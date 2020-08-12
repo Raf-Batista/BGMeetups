@@ -12,22 +12,30 @@ import MarketContainer from "./containers/MarketContainer";
 import MarketEditContainer from "./containers/MarketEditContainer";
 import Login from "./components/Login";
 import Heading from "./components/Heading";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector, useDispatch } from "react-redux";
 import fetchCurrentUser from "./async_actions/fetchCurrentUser";
 import fetchUsers from "./async_actions/fetchUsers";
+import MessagesContainer from "./containers/MessagesContainer";
+import { ActionCableConsumer } from 'react-actioncable-provider';
 
 library.add(fab);
 
-const App = () => {
+const App = (props) => {
   const currentUser = useSelector((state) => state.user);
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
-
+  
+  const handleReceived = (response) => {
+    const {message} = response
+    toast.info(message, {position: toast.POSITION.TOP_CENTER});
+  }
+  
   useEffect(() => {
     if (JSON.stringify(currentUser) === "{}") dispatch(fetchCurrentUser());
     if (JSON.stringify(users) === "[]") dispatch(fetchUsers());
+
   }, []); // empty array passed as second argument to prevent loop. https://stackoverflow.com/questions/53243203/react-hook-useeffect-runs-continuously-forever-infinite-loop
 
   return (
@@ -36,11 +44,15 @@ const App = () => {
         <Heading />
         <Navbar />
         <ToastContainer />
+        <ActionCableConsumer channel="WebNotificationsChannel" onReceived={handleReceived}> 
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/account" component={Account} />
+          <Route 
+          exact 
+          path="/account" 
+          render={(routeProps) => <Account {...routeProps}/>} />
           <Route
             exact
             path="/groups"
@@ -48,8 +60,15 @@ const App = () => {
           />
           <Route exact path="/market" component={MarketContainer} />
           <Route exact path="/my-market" component={MarketEditContainer} />
+          <Route 
+          exact 
+          path="/messages" 
+          render={(routeProps) => 
+            <MessagesContainer {...routeProps}  />
+          } />
         </Switch>
-      </Router>
+        </ActionCableConsumer> 
+      </Router>     
     </div>
   );
 };
