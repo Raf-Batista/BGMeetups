@@ -10,7 +10,7 @@ const Account = (props) => {
   const user = useSelector((state) => state.user);
   const isFetching = useSelector((state) => state.loading.FETCH_EDIT);
   const [active, setActive] = useState(true);
-
+    
   useEffect(() => {
     if (JSON.stringify(user) === "{}") props.history.push("/login");
   });
