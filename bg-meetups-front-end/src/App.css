@@ -236,7 +236,41 @@ body {
     margin-right: 1em;
     font-weight: bold;
   }
+
+  .message-subjects {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 15em;
+    text-align: left;
+  }
  }
+
+
+
+ /*Extra large devices (large desktops, 1200px and up) */
+ @media (min-width: 1200px) { 
+   /* .logo img {
+     height: 8em;
+     margin-left: 20em; 
+   } */
+   .messages {
+     width: 50%;
+   }
+
+    .message-subjects {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 20em;
+      text-align: left;
+    }
+  } 
+ 
+
+
+
+
 
 /* Medium devices (tablets, 768px and up) 
 @media (min-width: 768px) { 
