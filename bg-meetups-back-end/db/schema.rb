@@ -87,12 +87,14 @@ ActiveRecord::Schema.define(version: 2020_08_12_155609) do
   end
 
   create_table "received_messages", force: :cascade do |t|
+    t.integer "user_id"
     t.string "from"
     t.string "subject"
     t.text "content"
   end
 
   create_table "sent_messages", force: :cascade do |t|
+    t.integer "user_id"
     t.string "recipient"
     t.string "subject"
     t.text "content"
