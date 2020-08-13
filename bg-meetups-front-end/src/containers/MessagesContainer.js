@@ -21,10 +21,6 @@ const MessagesContainer = (props) => {
   const handleClick = () => {
     setActive(!active);
   };
-  
-  const handleRecieved = (response) => {
-    console.log(response)
-  }
 
   return (
      <div className="container text-center mt-5">
