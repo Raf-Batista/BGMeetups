@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_003159) do
+ActiveRecord::Schema.define(version: 2020_08_12_155609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,19 +77,26 @@ ActiveRecord::Schema.define(version: 2020_07_23_003159) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "messages", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.integer "user_id"
-    t.string "recipient"
-    t.string "subject"
+    t.integer "group_id"
+    t.string "title"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "received_messages", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "group_id"
-    t.string "title"
+    t.string "from"
+    t.string "subject"
+    t.text "content"
+  end
+
+  create_table "sent_messages", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "recipient"
+    t.string "subject"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -118,6 +125,7 @@ ActiveRecord::Schema.define(version: 2020_07_23_003159) do
     t.integer "appealed", default: 1
     t.integer "access", default: 2
     t.integer "reputation", default: 0
+    t.jsonb "board_games", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

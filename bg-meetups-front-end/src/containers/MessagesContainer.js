@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import Private from "./Private";
-import Public from "./Public";
+import Messages from "../components/Messages";
+import MessageForm from "../components/MessageForm";
+import { ActionCableConsumer } from 'react-actioncable-provider';
+
 import PacmanLoader from "react-spinners/PacmanLoader";
 
-const Account = (props) => {
+const MessagesContainer = (props) => {
+  const {history} = props
   const user = useSelector((state) => state.user);
   const isFetching = useSelector((state) => state.loading.FETCH_EDIT);
   const [active, setActive] = useState(true);
-    
+
   useEffect(() => {
     if (JSON.stringify(user) === "{}") props.history.push("/login");
   });
@@ -20,15 +23,16 @@ const Account = (props) => {
   };
 
   return (
-    <div className="container text-center mt-5">
+     <div className="container text-center mt-5">
+       <h1>{props.message}</h1> 
       {isFetching ? (
         <div className="spinner">
           <PacmanLoader color={"#7d3cff"} />
         </div>
       ) : null}
       <div className="heading">
-        <h2 className="d-block my-3">Account Management</h2>
-        <span>Update and manage your BGMeetups account</span>
+        <h2 className="d-block my-3">Messages</h2>
+        <span>View messages other users has sent you and create new messages</span>
       </div>
 
       <ul className="nav justify-content-center my-4">
@@ -37,7 +41,7 @@ const Account = (props) => {
             className={`nav-link pointer ${active ? "active" : ""}`}
             onClick={handleClick}
           >
-            Account
+            Messages
           </div>
         </li>
         <li className="nav-item">
@@ -45,18 +49,18 @@ const Account = (props) => {
             className={`nav-link pointer ${!active ? "active" : ""}`}
             onClick={handleClick}
           >
-            Public Profile
+            Compose
           </span>
         </li>
       </ul>
 
       {active ? (
-        <Private user={user} history={props.history} />
+        <Messages user={user} history={history} />
       ) : (
-        <Public user={user} />
+        <MessageForm user={user} history={history}/>
       )}
-    </div>
+    </div>   
   );
 };
 
-export default Account;
+export default MessagesContainer;

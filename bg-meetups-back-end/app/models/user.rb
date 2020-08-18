@@ -7,7 +7,8 @@ class User < ApplicationRecord
     has_many :members 
     has_many :groups, through: :members
     has_many :posts
-    has_many :messages
+    has_many :sent_messages
+    has_many :received_messages
     has_one_base64_attached :avatar
     has_many :boardgames
 

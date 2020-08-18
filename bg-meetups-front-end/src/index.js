@@ -5,6 +5,8 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import configureStore from "./configureStore";
+import { ActionCableProvider } from 'react-actioncable-provider';
+
 
 const store = configureStore();
 
@@ -12,7 +14,9 @@ const renderApp = () =>
   render(
     <React.StrictMode>
       <Provider store={store}>
-        <App />
+        <ActionCableProvider url="ws://localhost:3000/cable">
+          <App />
+        </ActionCableProvider>
       </Provider>
     </React.StrictMode>,
     document.getElementById("root")

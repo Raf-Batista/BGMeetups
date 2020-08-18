@@ -2,7 +2,7 @@ class UserSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
   include ActionView::Helpers
 
-  attributes :id, :username, :email, :avatar, :messages, :boardgames
+  attributes :id, :username, :email, :avatar, :sent_messages, :received_messages, :boardgames
 
   def avatar
     if object.avatar.attached?
