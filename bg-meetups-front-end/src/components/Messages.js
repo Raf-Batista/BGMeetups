@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import Message from './Message';
+import SentMessage from './SentMessage';  
 
 const Messages = () => {
     const [active, setActive] = useState(true);
+    /* The '|| []' will prevent an error when refreshing the page. sentMessages and receivedMessages will be undefined on refresh without it */
+    const sentMessages = useSelector(state => state.user.sent_messages) || [];
+    const receivedMessages = useSelector(state => state.user.received_messages) || [];
 
     const handleClick = () => {
         setActive(!active);
@@ -12,32 +17,29 @@ const Messages = () => {
         <div className='container messages'>
           <div className='row'>
             
-            <div className='col-6'>
+            <div className='col-6 text-justify'>
                     <div
-                      className={`nav-link pointer ${active ? "active" : ""}`}
+                      className={`pointer ${active ? "message-selection" : ""}`}
                       onClick={handleClick}
                     >
                     Recieved
                     </div>
-                  <span
-                    className={`nav-link pointer ${!active ? "active" : ""}`}
+                  <div
+                    className={`pointer mt-2 ${!active ? "message-selection" : ""}`}
                     onClick={handleClick}
                   >
                     Sent
-                  </span>
+                  </div>
             </div>
 
             <div className='col-6 mt-2'>
-              <div className='message-subjects'>THIS IS A TEST SUBJECT THIS IS A TEST SUBJECT</div>
-              <div className='message-subjects'>THIS IS A TEST</div>
-              <div className='message-subjects'>THIS IS A</div>
-              <div className='message-subjects'>THIS IS</div>
-              <div className='message-subjects'>THIS</div>
-              <div className='message-subjects'>THIS IS A TEST SUBJECT THIS IS A TEST SUBJECT</div>
-              <div className='message-subjects'>THIS IS A TEST</div>
-              <div className='message-subjects'>THIS IS A</div>
-              <div className='message-subjects'>THIS IS</div>
-              <div className='message-subjects'>THIS</div>
+              {
+                active ? 
+               
+                receivedMessages.map((receivedMessage) => <Message key={receivedMessage.id} message=  {receivedMessage} />) :
+                
+                sentMessages.map((sentMessage) => <Message message={sentMessage} />)
+              }
             </div>
           </div> 
         </div>
