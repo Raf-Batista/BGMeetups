@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import createMessage from '../async_actions/createMessage';
 
 const MessageForm = (props) => {
+    const dispatch = useDispatch();
 
-    const {history, user} = props
+    const {user} = props
     const [message, setMessage] = useState({recipient: '', subject: '', content: ''});
     const handleChange = (e) => {
         setMessage({...message, [e.target.name]: e.target.value})
     }
-    const handleClick = () => {
-        props.history.push('/messages')
-    }
     const handleSubmit = (e) => {
         e.preventDefault();
-        createMessage(message, user.id)
+        dispatch(createMessage(message, user.id));
         setMessage({
             recipient: '', 
             subject: '', 
             content: ''
-        })
+        });
     }
     return (
         <div>
@@ -39,11 +38,13 @@ const MessageForm = (props) => {
             value={message.subject}
             />
             <label className="d-block my-2">Content</label>
-            <input
+            <textarea
             name="content"
             onChange={handleChange}
             type="text-area"
             value={message.content}
+            row='3'
+            className='description'
             />
             <div>
             <button
@@ -52,12 +53,6 @@ const MessageForm = (props) => {
             >
             Send
             </button>
-            <button
-                className="d-inline border-0 bg-transparent"
-                onClick={handleClick}
-            >
-            Cancel
-          </button>
         </div>
       </div>
     </form>
