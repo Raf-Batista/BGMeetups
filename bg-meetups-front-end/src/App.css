@@ -267,10 +267,25 @@ body {
     }
   } 
  
+  .message-selection {
+    /* border-bottom: 3px solid #7d3cff;
+    width: 5em;
+    margin: 0 auto; */
+    color: black;
+    font-weight: bold;
+  }
 
+.message-content {
+    overflow-wrap: break-word;
+  }
 
+.message-delete-btn {
+  color: red;
+}
 
-
+.about {
+  font-size: x-large;
+}
 
 /* Medium devices (tablets, 768px and up) 
 @media (min-width: 768px) { 
