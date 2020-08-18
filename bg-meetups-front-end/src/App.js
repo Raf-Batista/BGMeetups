@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import Home from "./components/Home";
+import About from "./components/About";
 import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import Account from "./components/Account";
@@ -15,6 +16,7 @@ import Heading from "./components/Heading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector, useDispatch } from "react-redux";
+import * as actions from './actions/message';
 import fetchCurrentUser from "./async_actions/fetchCurrentUser";
 import fetchUsers from "./async_actions/fetchUsers";
 import MessagesContainer from "./containers/MessagesContainer";
@@ -28,8 +30,9 @@ const App = (props) => {
   const dispatch = useDispatch();
   
   const handleReceived = (response) => {
-    const {message} = response
-    toast.info(message, {position: toast.POSITION.TOP_CENTER});
+    const {notification, receivedMessage} = response;
+    dispatch(actions.receivedMessageSuccess(receivedMessage));
+    toast.info(notification, {position: toast.POSITION.TOP_CENTER});
   }
   
   useEffect(() => {
@@ -46,7 +49,8 @@ const App = (props) => {
         <ToastContainer />
         <ActionCableConsumer channel="WebNotificationsChannel" onReceived={handleReceived}> 
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={About} />
+          <Route exact path="/Home" component={Home} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
           <Route 
