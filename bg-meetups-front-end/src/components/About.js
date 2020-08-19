@@ -41,6 +41,14 @@ const About = () => {
                     <h4>Routing</h4>
                     <div>I am planning changes to the routes and the URL names. The back end is RESTful so I'm thinking of using it for the front end</div>
                 </li>
+                <li className='mt-2 list-group-item'>
+                    <h4>File Structure</h4>
+                    <div>React is not as opinionated as Rails so I need to look up best practices etc. in order to better structure the app.</div>
+                </li>
+                <li className='mt-2 list-group-item'>
+                    <h4>Refactor </h4>
+                    <div>The React side of this application needs to be refactored. I always try to program using best practices or program in that programming languages style. Sometimes I do have to just put something out, even if it's dated or inneficient. </div>
+                </li>
             </ul>
         </div>
     )
