@@ -29,6 +29,19 @@ const About = () => {
                     <div>This is the feature that started the idea of this application. The idea is to be able to play games virtually with members of your group with only one person needing to own the game</div>
                 </li>
             </ul>
+
+
+            <h3 className='mt-5'>Technical Updates</h3>
+            <ul className='mt-3 list-group list-group-flush'>
+                <li className='mt-3 list-group-item'>
+                    <h4>More Test Coverage</h4>
+                    <div className='mt-2'>I know some programmers do not like writing tests but I beleive there should always be tests. Having some coverage is better than no coverage.</div>
+                </li>
+                <li className='mt-2 list-group-item'>
+                    <h4>Routing</h4>
+                    <div>I am planning changes to the routes and the URL names. The back end is RESTful so I'm thinking of using it for the front end</div>
+                </li>
+            </ul>
         </div>
     )
 }
