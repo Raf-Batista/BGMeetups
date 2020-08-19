@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 const GroupEdit = (props) => {
+  const dispatch = useDispatch();
+
   const [group, setGroup] = useState({
     name: "",
     purpose: "",
@@ -15,6 +18,7 @@ const GroupEdit = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch();
     setGroup({ name: "", purpose: "" });
   };
 
