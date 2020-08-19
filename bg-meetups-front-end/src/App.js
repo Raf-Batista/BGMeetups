@@ -11,6 +11,7 @@ import Account from "./components/Account";
 import Groups from "./components/Groups";
 import MarketContainer from "./containers/MarketContainer";
 import MarketEditContainer from "./containers/MarketEditContainer";
+import GroupEditContainer from "./containers/GroupEditContainer";
 import Login from "./components/Login";
 import Heading from "./components/Heading";
 import { ToastContainer, toast } from "react-toastify";
@@ -64,6 +65,7 @@ const App = (props) => {
           />
           <Route exact path="/market" component={MarketContainer} />
           <Route exact path="/my-market" component={MarketEditContainer} />
+          <Route exact path="/my-groups" component={GroupEditContainer} />
           <Route 
           exact 
           path="/messages" 
