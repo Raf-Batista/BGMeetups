@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
-import MarketEdit from "../components/MarketEdit";
+import GroupEdit from "../components/GroupEdit";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
@@ -28,7 +28,8 @@ const GroupEditContainer = (props) => {
       <div className="heading">
         <h2 className="d-block my-3">My Groups</h2>
         <span>
-          Create and manage your groups. You can invite other gamers to be a member and manage members as well.
+          Create and manage your groups. You can invite other gamers to be a
+          member and manage members as well.
         </span>
       </div>
       <ul className="nav justify-content-center my-4">
@@ -49,7 +50,7 @@ const GroupEditContainer = (props) => {
           </span>
         </li>
       </ul>
-      {active ? null : <MarketEdit />}
+      {active ? null : <GroupEdit />}
     </div>
   );
 };
