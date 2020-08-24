@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector, useDispatch } from "react-redux";
-import PacmanLoader from "react-spinners/PacmanLoader";
 import fetchSignup from "../async_actions/fetchSignup";
 import { NavLink } from 'react-router-dom';
 
@@ -13,7 +12,6 @@ const Signup = (props) => {
     password: "",
   });
 
-  const isFetching = useSelector((state) => state.loading.FETCH_SIGNUP);
   const loggedIn = useSelector(state => state.user);
   const dispatch = useDispatch();
   let { history } = props
@@ -46,12 +44,6 @@ const Signup = (props) => {
 
   return (
     <div className="container text-center mt-4 signin">
-      {isFetching ? (
-        <div className="spinner">
-          <PacmanLoader color={"#7d3cff"} />
-        </div>
-      ) : null}
-      <div className={isFetching ? "loading" : ""}>
         <h2 data-test="heading">Signup</h2>
 
         <div className="mt-4">
@@ -134,7 +126,6 @@ const Signup = (props) => {
           </form>
         </div>
       </div>
-    </div>
   );
 };
 
