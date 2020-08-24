@@ -17,7 +17,6 @@ const createGroup = (params, userId) => {
       });
 
       const result = await response.json();
-
       if (!result.error) {
         toast.success("Group Created", {
           position: toast.POSITION.TOP_CENTER,
@@ -32,3 +31,5 @@ const createGroup = (params, userId) => {
     }
   };
 };
+
+export default createGroup;
