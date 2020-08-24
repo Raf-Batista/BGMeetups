@@ -2,7 +2,7 @@ class UserSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
   include ActionView::Helpers
 
-  attributes :id, :username, :email, :avatar, :sent_messages, :received_messages, :boardgames
+  attributes :id, :username, :email, :avatar, :sent_messages, :received_messages, :boardgames, :groups
 
   def avatar
     if object.avatar.attached?
@@ -24,6 +24,19 @@ class UserSerializer < ActiveModel::Serializer
         description: boardgame.description,
         price: number_to_currency(boardgame.price)
       }
+    end 
+  end
+
+    def groups 
+      self.object.groups.map do |group|
+        {
+          id: group.id,
+          owner: group.owner,
+          name: group.name,
+          purpose: group.purpose, 
+          status: group.status,
+          memberships: group.get_members
+        }
     end 
   end 
 end
