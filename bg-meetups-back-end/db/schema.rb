@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_12_155609) do
+ActiveRecord::Schema.define(version: 2020_08_23_184444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,34 +38,37 @@ ActiveRecord::Schema.define(version: 2020_08_12_155609) do
 
   create_table "boardgames", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.text "description"
     t.decimal "price", precision: 8, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_boardgames_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "status", default: "open"
     t.string "purpose"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "meetups", force: :cascade do |t|
-    t.integer "group_id"
+    t.bigint "group_id"
     t.datetime "meetup_time"
     t.integer "attended", default: [], array: true
     t.integer "no_show", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_meetups_on_group_id"
   end
 
-  create_table "members", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "group_id"
+  create_table "memberships", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "group_id"
     t.string "admin"
     t.string "warning", default: "0"
     t.boolean "accepted"
@@ -75,6 +78,8 @@ ActiveRecord::Schema.define(version: 2020_08_12_155609) do
     t.boolean "receive_email", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_memberships_on_group_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -87,19 +92,21 @@ ActiveRecord::Schema.define(version: 2020_08_12_155609) do
   end
 
   create_table "received_messages", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "from"
     t.string "subject"
     t.text "content"
+    t.index ["user_id"], name: "index_received_messages_on_user_id"
   end
 
   create_table "sent_messages", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "recipient"
     t.string "subject"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_sent_messages_on_user_id"
   end
 
   create_table "supers", force: :cascade do |t|
@@ -131,4 +138,5 @@ ActiveRecord::Schema.define(version: 2020_08_12_155609) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "groups", "users"
 end
