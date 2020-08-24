@@ -27,7 +27,7 @@ const MarketEdit = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submit");
+    console.log("Submit Boardgame to marketplace");
     console.log(boardgame);
   };
 

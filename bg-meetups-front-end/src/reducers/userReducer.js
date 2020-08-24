@@ -14,6 +14,16 @@ const userReducer = (state = {}, action) => {
     case "RECEIVED_MESSAGE_SUCCESS":
       const updatedReceivedMessages = [...state.received_messages, action.payload];
       return {...state, received_messages: updatedReceivedMessages};
+    case "CREATE_GROUP_SUCCESS": 
+      const updatedCreatedGroup = [...state.groups, action.payload];
+      return {...state, groups: updatedCreatedGroup};  
+    case "EDIT_GROUP_SUCCESS": 
+      const updatedGroups = state.groups.map(group => 
+        group.id === action.payload.id ? 
+        action.payload : 
+        group
+      ) 
+      return {...state, groups: updatedGroups}
     default:
       return state;
   }

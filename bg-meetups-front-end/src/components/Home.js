@@ -26,19 +26,19 @@ const Home = () => {
         </ol>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={bg1} class="d-block w-100" alt="..." />
+            <img src={bg1} className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img src={bg2} class="d-block w-100" alt="..." />
+            <img src={bg2} className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img src={bg3} class="d-block w-100" alt="..." />
+            <img src={bg3} className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img src={bg4} class="d-block w-100" alt="..." />
+            <img src={bg4} className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img src={bg5} class="d-block w-100" alt="..." />
+            <img src={bg5} className="d-block w-100" alt="..." />
           </div>
         </div>
         <a

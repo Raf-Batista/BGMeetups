@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   resources :users do #, only: [:index, :create, :edit, :delete]
     resources :messages
   end 
+
+  resources :users do #, only: [:index, :create, :edit, :delete]
+    resources :groups
+  end 
+  get '/groups', to: 'groups#index'
   post '/sessions', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/current_user', to: 'sessions#logged_in?'

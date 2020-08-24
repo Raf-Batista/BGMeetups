@@ -1,16 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import PacmanLoader from "react-spinners/PacmanLoader";
+import GroupForm from "../components/GroupForm";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import Groups from "../components/Groups";
 
-const GroupEditContainer = () => {
-  const [active, setActive] = useState(false);
+const GroupEditContainer = (props) => {
+  const [active, setActive] = useState(true);
+  const { history } = props;
+  const user = useSelector((state) => state.user);
+
+  useEffect(() => {
+    // if (JSON.stringify(user) === "{}") {
+    //   history.push("/account");
+    //   toast.error("You Shall Not Pass!", {
+    //     position: toast.POSITION.TOP_CENTER,
+    //   });
+    // }
+  });
+
+  const handleClick = () => {
+    setActive(!active);
+  };
+
   return (
-    <div>
+    <div className="container text-center mt-5">
+      <div className="heading">
+        <h2 className="d-block my-3">My Groups</h2>
+        <span>
+          Create and manage your groups. You can invite other gamers to be a
+          member and manage members as well.
+        </span>
+      </div>
       <ul className="nav justify-content-center my-4">
         <li className="nav-item">
           <div
             className={`nav-link pointer ${active ? "active" : ""}`}
             onClick={handleClick}
           >
-            My Market Games
+            My Groups
           </div>
         </li>
         <li className="nav-item">
@@ -18,10 +47,11 @@ const GroupEditContainer = () => {
             className={`nav-link pointer ${!active ? "active" : ""}`}
             onClick={handleClick}
           >
-            Sell A Game
+            Create a Group
           </span>
         </li>
       </ul>
+      {active ? <Groups groups={user.groups} /> : <GroupForm />}
     </div>
   );
 };
