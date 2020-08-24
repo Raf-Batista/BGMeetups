@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
-import GroupEdit from "../components/GroupEdit";
+import GroupForm from "../components/GroupForm";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import Groups from "../components/Groups";
 
 const GroupEditContainer = (props) => {
   const [active, setActive] = useState(true);
@@ -11,12 +12,12 @@ const GroupEditContainer = (props) => {
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
-    if (JSON.stringify(user) === "{}") {
-      history.push("/account");
-      toast.error("You Shall Not Pass!", {
-        position: toast.POSITION.TOP_CENTER,
-      });
-    }
+    // if (JSON.stringify(user) === "{}") {
+    //   history.push("/account");
+    //   toast.error("You Shall Not Pass!", {
+    //     position: toast.POSITION.TOP_CENTER,
+    //   });
+    // }
   });
 
   const handleClick = () => {
@@ -50,7 +51,7 @@ const GroupEditContainer = (props) => {
           </span>
         </li>
       </ul>
-      {active ? null : <GroupEdit />}
+      {active ? <Groups groups={user.groups} /> : <GroupForm />}
     </div>
   );
 };
