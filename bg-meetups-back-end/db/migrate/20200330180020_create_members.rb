@@ -1,8 +1,8 @@
 class CreateMembers < ActiveRecord::Migration[6.0]
   def change
     create_table :members do |t|
-      t.integer :user_id 
-      t.integer :group_id 
+      t.belongs_to :user 
+      t.belongs_to :group
       t.string :admin 
       t.string :warning, default: 0 
       t.boolean :accepted 
