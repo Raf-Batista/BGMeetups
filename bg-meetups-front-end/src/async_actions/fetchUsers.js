@@ -4,7 +4,7 @@ const URL = `${process.env.REACT_APP_URL}/users`;
 
 const fetchUsers = () => {
     return async (dispatch) => {
-        dispatch(actions.fetchUsersRequest())
+        dispatch(actions.fetchUsersRequest());
 
         try {
             const response = await fetch(URL, {
