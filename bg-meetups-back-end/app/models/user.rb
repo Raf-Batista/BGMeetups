@@ -4,8 +4,10 @@ class User < ApplicationRecord
     validates :username, uniqueness: true, presence: true 
   # validates :interest, presence: true
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true, presence: true
-    has_many :members 
-    has_many :groups, through: :members
+    has_many :memberships
+    has_many :groups, through: :memberships
+    # has_many :owned_groups, class_name: "Group", foreign_key: :group_id 
+    # has_many :memberships, class_name: "Group", foreign_key: :group_id
     has_many :posts
     has_many :sent_messages
     has_many :received_messages
@@ -20,4 +22,5 @@ class User < ApplicationRecord
         
      return false
     end
+
 end
