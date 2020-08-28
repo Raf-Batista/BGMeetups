@@ -1,7 +1,6 @@
 import * as actions from "../actions/message";
 import { toast } from "react-toastify";
 
-
 const createMessage = (params, userId) => {
   return async (dispatch) => {
     const URL = `${process.env.REACT_APP_URL}/users/${userId}/messages`;
