@@ -65,7 +65,7 @@ const Heading = () => {
             </div>
 
             <div className='sidenav' style={open ? {width: '250px'} : {width: '0'}}>
-              <a href="javascript:void(0)" className="closebtn" onClick={handleClick} >&times;</a>
+              <a href="#" className="closebtn" onClick={handleClick} >&times;</a>
                     {
                       JSON.stringify(currentUser) === "{}" ?
                       loginNav : 
@@ -107,6 +107,16 @@ const Heading = () => {
                             to="/messages" 
                             data-test="link-navbar">
                             Messages
+                          </NavLink>
+                         </li>
+
+                         <li>
+                           <NavLink 
+                            exact 
+                            className="nav-link" 
+                            to="/invites" 
+                            data-test="link-navbar">
+                            Invites
                           </NavLink>
                          </li>
             
