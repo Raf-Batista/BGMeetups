@@ -15,7 +15,6 @@ const fetchGroups = () => {
             });
 
             const result = await response.json();
-            console.log(result)
             if(!result.error) return dispatch(actions.fetchGroupsSuccess(result)); 
 
             dispatch(actions.fetchGroupsFailure(result.error));
