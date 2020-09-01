@@ -21,7 +21,26 @@ class InvitationsController < ApplicationController
     end 
 
     def accept_invitation 
+        invitation_id = params[:invitation_id].to_i
+        invitation = Invitation.find_by(id: invitation_id)
+        encrypted_invitation = params[:invitation]
+        decrypted_invitation = decode_invitation(encrypted_invitation)
+        new_member_id = decrypted_invitation[:recipient]
+        group_id = decrypted_invitation[:group]
+        group = Group.find_by(id: group_id)
+        group.memberships.build(user_id: new_member_id) 
 
+        if group.save 
+            new_member = User.find_by(id: new_member_id)
+            invitation.update(active: false)
+            # json_group_info = ActiveModelSerializers::SerializableResource.new(group)
+            # json_user_info = ActiveModelSerializers::SerializableResource.new(new_member)
+            # json_user_info = ActiveModelSerializers::SerializableResource.new(new_member, adapter: :json, serializer: UserSerializer, include: [:username])
+
+        #     json_group_info = ActiveModelSerializers::SerializableResource.new(group, adapter: :json, serializer: GroupSerializer)
+        #    # binding.pry
+           render json: {user: new_member, group: group, invitation: invitation_id}, status: :ok
+        end 
     end 
 
     private 
