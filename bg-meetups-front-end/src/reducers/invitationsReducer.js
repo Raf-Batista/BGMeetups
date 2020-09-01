@@ -4,6 +4,8 @@ const invitationsReducer = (state = [], action) => {
             return action.payload
         case "RECEIVED_INVITATION_SUCCESS": 
             return [...state, action.payload] 
+        case "ACCEPT_INVITATION_SUCCESS": 
+            return state.filter((invitation) => invitation.id !== action.payload.invitation);
         default: 
             return state
     }
