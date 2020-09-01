@@ -17,8 +17,7 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/current_user', to: 'sessions#logged_in?'
-  # post '/users/:user_id/groups/:group_id/invite', to: 'messages#invite'
-  # post '/enc/*', to: 'messages#accept_invitation'
+  post '/enc/:invitation_id/*invitation', to: 'invitations#accept_invitation'
 
   mount ActionCable.server => '/cable'
 end
