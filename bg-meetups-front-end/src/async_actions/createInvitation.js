@@ -1,10 +1,11 @@
-import * as actions from "../actions/message";
+import * as actions from "../actions/invitation";
 import { toast } from "react-toastify";
 
-const createMessage = (params, userId) => {
+
+const createInvitation = (params) => {
   return async (dispatch) => {
-    const URL = `${process.env.REACT_APP_URL}/users/${userId}/messages`;
-    dispatch(actions.sentMessageRequest());
+    const URL = `${process.env.REACT_APP_URL}/invitations`;
+    dispatch(actions.sentInvitationRequest());
     try {
       const response = await fetch(URL,{
         credentials: "include",
@@ -17,13 +18,13 @@ const createMessage = (params, userId) => {
       });
         
       const result = await response.json();
-        
+      console.log(result)
       if(!result.error) {
-        toast.success("Message Sent", {position: toast.POSITION.TOP_CENTER});
-        return dispatch(actions.sentMessageSuccess(result));
+       return toast.success("Invitation Sent", {position: toast.POSITION.TOP_CENTER});
+       // return dispatch(actions.sentMessageSuccess(result));
       }
 
-      dispatch(actions.sentMessageFailure(result.error))
+      dispatch(actions.sentInvitationFailure(result.error))
       toast.error(result.error, {position: toast.POSITION.TOP_CENTER});
     } catch (error) {
         console.log(error);
@@ -33,4 +34,4 @@ const createMessage = (params, userId) => {
     
 }
 
-  export default createMessage;
+  export default createInvitation;

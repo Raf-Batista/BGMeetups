@@ -12,6 +12,7 @@ import Groups from "./components/Groups";
 import Group from "./components/Group";
 import ManageGroupsContainer from "./containers/ManageGroupsContainer";
 import GroupContainer from "./containers/GroupContainer";
+import InvitationsContainer from "./containers/InvitationsContainer";
 import MarketContainer from "./containers/MarketContainer";
 import MarketEditContainer from "./containers/MarketEditContainer";
 import GroupEditContainer from "./containers/GroupEditContainer";
@@ -20,10 +21,12 @@ import Heading from "./components/Heading";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector, useDispatch } from "react-redux";
-import * as actions from './actions/message';
+import * as messageActions from './actions/message';
+import * as invitationActions from './actions/invitation';
 import fetchCurrentUser from "./async_actions/fetchCurrentUser";
 import fetchUsers from "./async_actions/fetchUsers";
 import fetchGroups from "./async_actions/fetchGroups";
+import fetchInvitations from "./async_actions/fetchInvitations";
 import MessagesContainer from "./containers/MessagesContainer";
 import { ActionCableConsumer } from 'react-actioncable-provider';
 import PacmanLoader from "react-spinners/PacmanLoader";
@@ -35,12 +38,14 @@ const App = (props) => {
   const currentUser = useSelector((state) => state.user);
   const users = useSelector((state) => state.users);
   const groups = useSelector((state) => state.groups);
+  const invitations = useSelector((state) => state.invitations);
   const dispatch = useDispatch();
   const isFetching = useSelector((state) => state.loading.FETCH_LOGIN);
 
   const handleReceived = (response) => {
-    const { notification, receivedMessage } = response;
-    dispatch(actions.receivedMessageSuccess(receivedMessage));
+    const { notification, receivedMessage, receivedInvitation } = response;
+    if (receivedMessage) dispatch(messageActions.receivedMessageSuccess(receivedMessage));
+    if (receivedInvitation) dispatch(invitationActions.receivedInvitationSuccess(receivedInvitation));
     toast.info(notification, { position: toast.POSITION.TOP_CENTER });
   }
 
@@ -48,6 +53,7 @@ const App = (props) => {
     if (JSON.stringify(currentUser) === "{}") dispatch(fetchCurrentUser());
     if (JSON.stringify(users) === "[]") dispatch(fetchUsers());
     if (JSON.stringify(groups) === "[]") dispatch(fetchGroups());
+    if (JSON.stringify(invitations) === "[]") dispatch(fetchInvitations());
 
   }, []); // empty array passed as second argument to prevent loop. https://stackoverflow.com/questions/53243203/react-hook-useeffect-runs-continuously-forever-infinite-loop
 
@@ -81,6 +87,7 @@ const App = (props) => {
                 <Route exact path="/market" component={MarketContainer} />
                 <Route exact path="/my-market" component={MarketEditContainer} />
                 <Route exact path="/my-groups" component={GroupEditContainer} />
+                <Route exact path="/invites" component={InvitationsContainer} />
                 <Route exact path="/groups/:id" component={Group} />
                 <Route
                   exact

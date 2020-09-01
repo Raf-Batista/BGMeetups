@@ -4,6 +4,7 @@ class Group < ApplicationRecord
     # has_many :members, class_name: "User", foreign_key: :id
     has_many :meetups 
     has_many :memberships 
+    has_many :invitations
     has_many :users, through: :members
     has_many :posts 
     validates :name, presence: true

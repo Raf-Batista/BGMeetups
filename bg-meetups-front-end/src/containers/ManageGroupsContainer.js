@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import GroupEditForm from "../components/GroupEditForm";
+import ManageMembers from "../components/ManageMembers";
 
 const ManageGroupsContainer = (props) => {
     const { history }  = props;
@@ -13,7 +14,7 @@ const ManageGroupsContainer = (props) => {
     const group = groups.find((group) => group.id === id) || {};
       
     useEffect(() => {
-      if (JSON.stringify(user) === "{}") props.history.push("/login");
+     // if (JSON.stringify(user) === "{}") props.history.push("/login");
     });
   
     const handleClick = () => {
@@ -47,7 +48,7 @@ const ManageGroupsContainer = (props) => {
         </ul>
   
         {active ? (
-         null
+         <ManageMembers members={group.memberships} history={history} userId={user.id} groupId={group.id}/>
         ) : (
          <GroupEditForm group={group} history={history}/>
         )}

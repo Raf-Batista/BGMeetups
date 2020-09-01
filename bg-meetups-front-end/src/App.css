@@ -170,7 +170,9 @@ body {
   
 }
 
-
+.invite-link {
+  color: #7d3cff;
+}
 
 .logo-name {
   font-size: xx-large;
