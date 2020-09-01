@@ -8,7 +8,7 @@ class Invitation < ApplicationRecord
         invitations = Invitation.all 
 
         invitations.select do |invitation| 
-            invitation.recipient == user && invitation_link.active
+            invitation.recipient == user && invitation.active
         end 
     end 
 
