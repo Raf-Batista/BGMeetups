@@ -11,7 +11,13 @@ const groupsReducer = (state = [], action) => {
             group.id === action.payload.id ? 
             action.payload : 
             group
-          ) 
+          );
+        case "ACCEPT_INVITATION_SUCCESS": 
+          return state.map((group) => 
+            group.id === action.payload.group.id ? 
+            action.payload.group : 
+            group
+          );
         default: 
           return state
     }
