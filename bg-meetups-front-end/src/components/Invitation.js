@@ -3,13 +3,14 @@ import acceptInvite from '../async_actions/acceptInvite';
 import { useDispatch } from 'react-redux';
 
 const Invitation = (props) => {
-    const { invitation } = props;
+    const { invitation, history } = props;
     const { id, from, group_name, invitation_link } = invitation;
     const inviteLink = `${process.env.REACT_APP_URL}/enc/${id}/${invitation_link}`;
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        dispatch(acceptInvite())
+        dispatch(acceptInvite(id, inviteLink));
+        history.push('/invites')
     }
 
     return (
