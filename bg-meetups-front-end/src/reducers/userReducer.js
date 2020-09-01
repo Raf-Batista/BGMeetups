@@ -23,7 +23,10 @@ const userReducer = (state = {}, action) => {
         action.payload : 
         group
       ) 
-      return {...state, groups: updatedGroups}
+      return {...state, groups: updatedGroups};
+    case "ACCEPT_INVITATION_SUCCESS": 
+       const addedGroups = [...state.groups, action.payload.group]
+        return {...state, groups: addedGroups}
     default:
       return state;
   }
