@@ -11,17 +11,11 @@ services:
   redis:
     container_name: redis
     image: "redis:alpine"
-    command: redis-server --requirepass CHANGE_THIS_PASSWORD!
+    command: redis-server #--requirepass CHANGE_THIS_PASSWORD!
     ports:
-      - "6378:6378"
+      - '6379:6379'
     volumes:
-      - ./tmp/redis:/var/lib/redis
-      - ./redis.conf:/usr/local/etc/redis/redis.conf
-    environment:
-      - REDIS_REPLICATION_MODE=master
-    networks:
-      node_net:
-        ipv4_address: 172.28.1.4
+      - ./tmp/redis:/var/lib/redis/data
   server:
     container_name: rails
     build:
@@ -32,12 +26,13 @@ services:
       PG_DATABASE: bg_meetups_back_end_development
       PG_PORT: 5432
       PG_HOST: db
-      REDIS_DB: 0
-      REDIS_PORT: 6379
-      REDIS_URL: redis://172.28.1.4
-      SENTINEL_URL: redis://sentinel-master/1
-      SENTINEL_HOSTS: sentinel-slave-1 sentinel-slave-2 sentinel-slave-3
-      SENTINEL_PORT: 26379
+      # REDIS_DB: 0
+      # REDIS_PORT: 6379
+      # REDIS_URL: redis://127.0.0.1
+      REDIS_URL_CACHING: redis://redis:6379/0
+      # SENTINEL_URL: redis://sentinel-master/1
+      # SENTINEL_HOSTS: sentinel-slave-1 sentinel-slave-2 sentinel-slave-3
+      # SENTINEL_PORT: 26379
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - ./bg-meetups-back-end:/app
@@ -64,9 +59,9 @@ services:
     tty: true
     depends_on:
       - server
-networks:
-  node_net:
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.28.0.0/16
+# networks:
+#   node_net:
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: 172.28.0.0/16
