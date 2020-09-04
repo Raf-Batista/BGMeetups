@@ -22,11 +22,11 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV['PG_USER'] %>
   password: <%= ENV['PG_PASSWORD'] %>
-  host: <%= ENV['DATABASE_URL'] %>
 
 development:
   <<: *default
   database: bg_meetups_back_end_development
+  host: <%= ENV['PG_HOST'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -83,5 +83,6 @@ production:
   database: bg_meetups_back_end_production
   username: bg_meetups_back_end
   password: <%= ENV['BG_MEETUPS_BACK_END_DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_URL'] %>
   
 

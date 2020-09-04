@@ -20,8 +20,16 @@ services:
     container_name: rails
     build:
       context: ./bg-meetups-back-end
-    env_file:
-      ./bg-meetups-back-end/.env
+    environment:
+      PG_USER: postgres
+      PG_PASSWORD: postgres
+      PG_DATABASE: bg_meetups_back_end_development
+      PG_PORT: 5432
+      PG_HOST: db
+      REDIS_URL: redis://redis:6379/0
+      SENTINEL_URL: redis://sentinel-master/1
+      SENTINEL_HOSTS: sentinel-slave-1 sentinel-slave-2 sentinel-slave-3
+      SENTINEL_PORT: 26379
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - ./bg-meetups-back-end:/app
