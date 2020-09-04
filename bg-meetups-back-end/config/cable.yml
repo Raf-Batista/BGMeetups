@@ -1,6 +1,6 @@
 development:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL_CACHING")%>
+  url: <%= ENV.fetch("REDIS_URL")%>
   channel_prefix: bg_meetups_back_end_development
 
 test:
@@ -8,5 +8,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL_CACHING")%>
+  url: <%= ENV.fetch("REDIS_URL")%>
   channel_prefix: bg_meetups_back_end_development
