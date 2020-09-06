@@ -30,6 +30,7 @@ services:
       SENTINEL_URL: redis://sentinel-master/1
       SENTINEL_HOSTS: sentinel-slave-1 sentinel-slave-2 sentinel-slave-3
       SENTINEL_PORT: 26379
+      CLIENT: http://localhost:5000
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - ./bg-meetups-back-end:/app
