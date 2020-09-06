@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "CI= npm run build"
   publish="./bg-meetups-front-end/build"
   base = "./bg-meetups-front-end"
 [[redirects]]
