@@ -1,6 +1,6 @@
 [build]
   command = "CI= npm run build"
-  publish="./bg-meetups-front-end/build"
+  publish="/build"
   base = "./bg-meetups-front-end"
 [[redirects]]
   from = "/*"
