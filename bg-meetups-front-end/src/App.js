@@ -29,7 +29,7 @@ import fetchGroups from "./async_actions/fetchGroups";
 import fetchInvitations from "./async_actions/fetchInvitations";
 import MessagesContainer from "./containers/MessagesContainer";
 import { ActionCableConsumer } from 'react-actioncable-provider';
-import PacmanLoader from "react-spinners/PacmanLoader";
+import BeatLoader from "react-spinners/BeatLoader";
 
 
 library.add(fab);
@@ -66,11 +66,12 @@ const App = (props) => {
         <ActionCableConsumer channel="WebNotificationsChannel" onReceived={handleReceived}>
           {
             isFetching ? <div className="spinner">
-              <PacmanLoader color={"#7d3cff"} />
+              <BeatLoader color={"#7d3cff"} />
             </div> :
+
               <Switch>
-                <Route exact path="/" component={About} />
-                <Route exact path="/Home" component={Home} />
+                <Route exact path="/" component={Home} />
+                <Route exact path="/about" component={About} />
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/login" component={Login} />
                 <Route

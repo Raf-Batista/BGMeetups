@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <div data-test="component-navbar">
       <nav className="navbar navbar-expand-lg navbar-dark">
-        <NavLink exact className="navbar-brand" to="/home" data-test="link-navbar">
+        <NavLink exact className="navbar-brand" to="/" data-test="link-navbar">
           BG Meetups
         </NavLink>
         <button
@@ -41,7 +41,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink exact className="nav-link" to="/" data-test="link-navbar">
+              <NavLink exact className="nav-link" to="/about" data-test="link-navbar">
                 About
               </NavLink>
             </li>
