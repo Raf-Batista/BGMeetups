@@ -51,8 +51,7 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
       - NODE_ENVIRONMENT=development
-    env_file: 
-      ./bg-meetups-front-end/.env
+      - REACT_APP_URL=http://localhost:3000
     stdin_open: true
     tty: true
     depends_on:
