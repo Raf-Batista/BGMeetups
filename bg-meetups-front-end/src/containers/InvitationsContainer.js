@@ -7,7 +7,11 @@ const InvitationsContainer = (props) => {
     const invitations = useSelector(state => state.invitations)
     return (
         <div>
-            <Invitations invitations={invitations} history={history}/>
+            <div className="heading text-center mt-5 mb-3">
+                <h2 className="d-block my-3">Invitations</h2>
+                <span>Any invitations you have received will show up here</span>
+            </div>
+            <Invitations invitations={invitations} history={history} />
         </div>
     )
 }
