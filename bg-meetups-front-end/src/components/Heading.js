@@ -110,7 +110,7 @@ const Heading = () => {
                           </NavLink>
                          </li>
 
-                         <li>
+                         <li onClick={handleClick}>
                            <NavLink 
                             exact 
                             className="nav-link" 
