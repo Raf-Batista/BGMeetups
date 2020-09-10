@@ -29,8 +29,10 @@ import fetchGroups from "./async_actions/fetchGroups";
 import fetchInvitations from "./async_actions/fetchInvitations";
 import MessagesContainer from "./containers/MessagesContainer";
 import { ActionCableConsumer } from 'react-actioncable-provider';
-import BeatLoader from "react-spinners/BeatLoader";
-
+import CircleLoader from "react-spinners/CircleLoader";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import ErrorPage from "./components/ErrorPage";
 
 library.add(fab);
 
@@ -58,49 +60,54 @@ const App = (props) => {
   }, []); // empty array passed as second argument to prevent loop. https://stackoverflow.com/questions/53243203/react-hook-useeffect-runs-continuously-forever-infinite-loop
 
   return (
-    <div>
-      <Router>
-        <Heading />
-        <Navbar />
-        <ToastContainer />
-        <ActionCableConsumer channel="WebNotificationsChannel" onReceived={handleReceived}>
-          {
-            isFetching ? <div className="spinner">
-              <BeatLoader color={"#7d3cff"} />
-            </div> :
+    <div className="page-container">
+      <div className="content-wrap">
+        <Router>
+          <Heading />
+          <Navbar />
+          <ToastContainer />
+          <ActionCableConsumer channel="WebNotificationsChannel" onReceived={handleReceived}>
+            {
+              isFetching ?
+                <div className="spinner">
+                  <CircleLoader color={"#7d3cff"} />
+                </div> :
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route exact path="/about" component={About} />
+                  <Route exact path="/signup" component={Signup} />
+                  <Route exact path="/login" component={Login} />
+                  <Route
+                    exact
+                    path="/account"
+                    render={(routeProps) => <Account {...routeProps} />} />
+                  <Route
+                    exact
+                    path="/groups"
+                    render={(routeProps) => <GroupContainer {...routeProps} />}
+                  />
+                  <Route exact path="/groups/:id/edit" component={ManageGroupsContainer} />
 
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/about" component={About} />
-                <Route exact path="/signup" component={Signup} />
-                <Route exact path="/login" component={Login} />
-                <Route
-                  exact
-                  path="/account"
-                  render={(routeProps) => <Account {...routeProps} />} />
-                <Route
-                  exact
-                  path="/groups"
-                  render={(routeProps) => <GroupContainer {...routeProps} />}
-                />
-                <Route exact path="/groups/:id/edit" component={ManageGroupsContainer} />
+                  <Route exact path="/market" component={MarketContainer} />
+                  <Route exact path="/my-market" component={MarketEditContainer} />
+                  <Route exact path="/my-groups" component={GroupEditContainer} />
+                  <Route exact path="/invites" component={InvitationsContainer} />
+                  <Route exact path="/groups/:id" component={Group} />
+                  <Route
+                    exact
+                    path="/messages"
+                    render={(routeProps) =>
+                      <MessagesContainer {...routeProps} />
+                    } />
+                      <Route path="/contact" />
 
-                <Route exact path="/market" component={MarketContainer} />
-                <Route exact path="/my-market" component={MarketEditContainer} />
-                <Route exact path="/my-groups" component={GroupEditContainer} />
-                <Route exact path="/invites" component={InvitationsContainer} />
-                <Route exact path="/groups/:id" component={Group} />
-                <Route
-                  exact
-                  path="/messages"
-                  render={(routeProps) =>
-                    <MessagesContainer {...routeProps} />
-                  } />
-              </Switch>
-          }
-
-        </ActionCableConsumer>
-      </Router>
+                  <Route component={ErrorPage} />
+                </Switch>
+            }
+          </ActionCableConsumer>
+          <Footer />
+        </Router>
+      </div>
     </div>
   );
 };
