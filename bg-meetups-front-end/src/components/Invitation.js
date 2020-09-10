@@ -14,7 +14,7 @@ const Invitation = (props) => {
     }
 
     return (
-        <div className='container mt-5'>
+        <div className='container div-background py-2'>
             <span className='d-block'>{from} has invited you to join the group {group_name}</span>
             <span className='d-block mt-2'>Click the link below or copy and paste the link into the address bar</span>
             <span className='d-block pointer mt-2 invite-link' onClick={handleClick}>{inviteLink}</span>
