@@ -160,6 +160,12 @@ body {
   background-color: #e6e5e7;
 }
 
+.div-background {
+  background-color: #ece8f0;
+  border: 1px solid #c8c5cc;
+  border-radius: 4px;
+}
+
 .description {
   width: 16em;
 }
@@ -179,8 +185,6 @@ body {
   position: fixed;
   margin-top: 1.25em;
 }
-
-
 
 .group-search {
   position: fixed;
@@ -283,7 +287,8 @@ body {
   }
 
 .message-delete-btn {
-  color: red;
+  background: red;
+  color: white;
 }
 
 .about {
@@ -379,4 +384,40 @@ Redhead: #c80e13 */
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+}
+
+.small-btn {
+  font-size: .85em;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.small-btn:hover {
+  background-color: #b4afaf;
+}
+
+.save-btn {
+  color: white;
+  background-color: #7d3cff;
+}
+
+.account {
+  height: 26em;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;      
+  font-size: .8em;
+}
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
 }
