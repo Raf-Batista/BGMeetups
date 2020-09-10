@@ -33,7 +33,7 @@ const GroupEditContainer = (props) => {
           member and manage members as well.
         </span>
       </div>
-      <ul className="nav justify-content-center my-4">
+      <ul className="nav justify-content-center mt-4 div-background py-2">
         <li className="nav-item">
           <div
             className={`nav-link pointer ${active ? "active" : ""}`}
