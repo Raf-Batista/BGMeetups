@@ -40,11 +40,6 @@ const Navbar = () => {
                 Market
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink exact className="nav-link" to="/about" data-test="link-navbar">
-                About
-              </NavLink>
-            </li>
           </ul>
         </div>
       </nav>
