@@ -6,9 +6,9 @@ const Groups = (props) => {
   let {groups} = props;
   groups = !!groups ? groups : []
   return (
-    <div className='container text-center '>
+    <div className='container text-center'>
       {
-      groups.map((group) => <div key={group.id}><NavLink exact to={`/groups/${group.id}`} data-test="link-navbar" className='d-block mt-3'>{group.name} </NavLink></div>)
+      groups.map((group) => <div key={group.id} className="div-background pb-2"><NavLink exact to={`/groups/${group.id}`} data-test="link-navbar" className='d-block mt-3'>{group.name} </NavLink></div>)
       }
     </div>
  
