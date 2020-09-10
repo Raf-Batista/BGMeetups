@@ -32,7 +32,7 @@ const MarketEdit = (props) => {
   };
 
   return (
-    <form className="mt-4 mx-lg-auto ml-sm-4" onSubmit={handleSubmit}>
+    <form className="mt-4 div-background py-2 mb-4" onSubmit={handleSubmit}>
       <div className="form-group">
         <label className="d-block my-2">Name</label>
         <input name="name" type="text" onChange={handleChange} />
@@ -71,12 +71,12 @@ const MarketEdit = (props) => {
 
         <div>
           <button
-            className="d-inline mx-2 mt-2 border-0 bg-transparent"
+            className="d-inline mx-2 mt-2 small-btn save-btn px-3"
             type="submit"
           >
             Save
           </button>
-          <button className="d-inline border-0 bg-transparent">Cancel</button>
+          <button className="d-inline small-btn px-2">Cancel</button>
         </div>
       </div>
     </form>
