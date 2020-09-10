@@ -29,7 +29,7 @@ const GroupForm = (props) => {
   };
 
   return (
-    <form className="mt-4 mx-lg-auto ml-sm-4" onSubmit={handleSubmit}>
+    <form className="div-background" onSubmit={handleSubmit}>
       <div className="form-group">
         <label className="d-block my-2">Name</label>
         <input
@@ -37,6 +37,7 @@ const GroupForm = (props) => {
           type="text"
           onChange={handleChange}
           value={group.name}
+          required
         />
         <label className="d-block my-2">Purpose</label>
         <input
@@ -44,21 +45,22 @@ const GroupForm = (props) => {
           type="text"
           onChange={handleChange}
           value={group.purpose}
+          required
         />
 
-        <div>
+        <div className="mt-2">
           <button
-            className="d-inline mx-2 mt-2 border-0 bg-transparent"
+            className="d-inline mx-2 mt-2 small-btn save-btn"
             type="submit"
           >
             Create
           </button>
-          <span
-            className="d-inline border-0 bg-transparent pointer"
+          <button
+            className="d-inline small-btn"
             onClick={handleClick}
           >
             Cancel
-          </span>
+          </button>
         </div>
       </div>
     </form>
