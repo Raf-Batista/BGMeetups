@@ -75,17 +75,6 @@ div.spinner {
   .img-form {
     margin-left: 4em;
   }
-
-  .signin button {
-  width: 12em;
-  background-color: #7d3cff;
-  color: white;
-}
-
-.signin form {
-  width: 12em;
-}
-  
 }
 
 /* iPads (portrait) ----------- */
@@ -418,4 +407,14 @@ Redhead: #c80e13 */
 
 .content-wrap {
     padding-bottom: 2.5rem;    /* Footer height */
+}
+
+.signin button {
+  width: 12em;
+  background-color: #7d3cff;
+  color: white;
+}
+
+.signin form {
+  width: 12em;
 }
