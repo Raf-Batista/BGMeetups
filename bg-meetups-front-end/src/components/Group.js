@@ -1,23 +1,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Group = (props) => {
-    const groupId = parseInt(props.match.params.id);
-    const groups = useSelector(state => state.groups) || [];
-    console.log(groups)
-    const group = groups.find((group) => group.id === groupId) || {};
+    const {group} = props;
     const user = useSelector(state => state.user);
-    const manageLink = <NavLink to={{pathname: `/groups/${group.id}/edit`}}>Manage</NavLink>
+    const manageLink = <Link to={{pathname: `/groups/${group.id}/edit`}}>Manage</Link>
 
     return (
-        <div className='container mt-5 text-center'>
-            <div>
-                Name: {group.name}
-            </div>
-            <div>
-                Purpose: {group.purpose}
-            </div>
+        <div className='container pt-2 text-center'>
+            <h3>
+                {group.name}
+            </h3>
+            <h4>
+                {group.purpose}
+            </h4>
             <div>
                 Members: {group.memberships ? group.memberships.length : 0}
             </div>
