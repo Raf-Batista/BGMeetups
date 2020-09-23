@@ -13,10 +13,18 @@ const ManageMembers = (props) => {
 
     return (
         <div className='container'>
-            <span className='pointer my-4' onClick={handleClick}>Invite to Group</span>
-            {showForm ? <InvitationForm history={history} userId={userId} groupId={groupId}/> : members.map(member => <Member member={member} />)}
+            <h4>Members</h4>
+            {showForm ?
+                <div>
+                    <InvitationForm cancel={handleClick} history={history} userId={userId} groupId={groupId} />
+                </div> :
+                <div>
+                    <h6 className='pointer invite-link' onClick={handleClick}>Invite</h6>
+                    {members.map(member => <Member member={member} />)}
+                </div>
+            }
         </div>
-    ) 
+    )
 }
 
 export default ManageMembers
