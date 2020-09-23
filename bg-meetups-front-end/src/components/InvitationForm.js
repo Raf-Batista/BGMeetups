@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import createInvitation from '../async_actions/createInvitation';
 
 const InvitationForm = (props) => {
-    const { userId, groupId, history } = props;
+    const { userId, groupId, history, cancel } = props;
 
     const [inviteForm, setInviteForm] = useState({recipient: '', user_id: userId, group_id: groupId});
 
@@ -33,9 +33,9 @@ const InvitationForm = (props) => {
                 onChange={handleChange}
                 value={inviteForm.recipient}
             />
-            <div className='mt-2'>
-              <button className='mr-2'>Invite</button>
-              <button onClick={handleCancel} >Cancel</button>
+            <div className='mt-3'>
+              <button className='mr-2 small-btn save-btn px-2'>Invite</button>
+              <button onClick={cancel} className='small-btn'>Cancel</button>
             </div>
         </form>
 
