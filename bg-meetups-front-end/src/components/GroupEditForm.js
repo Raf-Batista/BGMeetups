@@ -20,14 +20,14 @@ const GroupEditForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const params = {group: groupForm, user_id: user.id, group_id: group.id}
+        const params = { group: groupForm, user_id: user.id, group_id: group.id }
         dispatch(editGroup(params));
         history.push('/my-groups');
     };
 
 
     return (
-        <form className="mt-4 mx-lg-auto ml-sm-4 mt-5" onSubmit={handleSubmit}>
+        <form className="div-background" onSubmit={handleSubmit}>
             <div className="form-group text-center">
                 <label className="d-block my-2">Name</label>
                 <input
@@ -48,7 +48,7 @@ const GroupEditForm = (props) => {
 
                 <div>
                     <button
-                        className="d-inline mx-2 mt-2 border-0 bg-transparent"
+                        className="d-inline mx-2 mt-3 small-btn save-btn px-2"
                         type="submit"
                     >
                         Update
