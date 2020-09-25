@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import createGroup from "../../async/createGroup";
+import createGroup from "../../../async/createGroup";
 
 
 const GroupForm = (props) => {

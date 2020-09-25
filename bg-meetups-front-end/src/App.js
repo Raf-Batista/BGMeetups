@@ -8,7 +8,10 @@ import About from "./components/About";
 import Navbar from "./components/Navbar/Navbar";
 import Signup from "./components/Signup";
 import AccountContainer from "./components/Account/AccountContainer";
-import { Group, GroupContainer, ManageGroupsContainer, GroupEditContainer } from "./components/Groups";
+import Group from './components/Groups/Group';
+import GroupsContainer from "./components/Groups/GroupsContainer";
+import GroupsEditContainer from "./components/Groups/GroupsEditContainer";
+import ManageGroupsContainer from "./components/Groups/ManageGroupsContainer";
 import InvitationsContainer from "./components/Invitations/";
 import { MarketContainer, MarketEditContainer } from "./components/Market";
 import Login from "./components/Login/Login";
@@ -79,13 +82,13 @@ const App = (props) => {
                   <Route
                     exact
                     path="/groups"
-                    render={(routeProps) => <GroupContainer {...routeProps} />}
+                    render={(routeProps) => <GroupsContainer {...routeProps} />}
                   />
                   <Route exact path="/groups/:id/edit" component={ManageGroupsContainer} />
 
                   <Route exact path="/market" component={MarketContainer} />
                   <Route exact path="/my-market" component={MarketEditContainer} />
-                  <Route exact path="/my-groups" component={GroupEditContainer} />
+                  <Route exact path="/my-groups" component={GroupsEditContainer} />
                   <Route exact path="/invites" component={InvitationsContainer} />
                   <Route exact path="/groups/:id" component={Group} />
                   <Route

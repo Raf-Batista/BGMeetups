@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import editGroup from "../../async/editGroup";
+import editGroup from "../../../async/editGroup";
 
 const GroupEditForm = (props) => {
     const { group, history } = props;

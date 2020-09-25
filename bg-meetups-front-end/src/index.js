@@ -14,7 +14,7 @@ const renderApp = () =>
   render(
     <React.StrictMode>
       <Provider store={store}>
-        <ActionCableProvider url="ws://localhost:3000/cable">
+        <ActionCableProvider url={`ws://${process.env.REACT_APP_URL}/cable`}>
           <App />
         </ActionCableProvider>
       </Provider>

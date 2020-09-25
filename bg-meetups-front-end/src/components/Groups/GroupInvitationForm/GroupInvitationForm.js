@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import createInvitation from '../../async/createInvitation';
+import createInvitation from '../../../async/createInvitation';
 
 const GroupInvitationForm = (props) => {
     const { userId, groupId, history, cancel } = props;

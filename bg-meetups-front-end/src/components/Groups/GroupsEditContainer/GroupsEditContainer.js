@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
-import GroupForm from "./GroupForm";
+import GroupForm from "../GroupForm/GroupForm";
 import { useSelector } from "react-redux";
-import Groups from "./Groups";
+import GroupsView from "../GroupsView";
 
-const GroupEditContainer = (props) => {
+const GroupsEditContainer = (props) => {
   const [active, setActive] = useState(true);
   const { history } = props;
   const user = useSelector((state) => state.user);
@@ -50,9 +50,9 @@ const GroupEditContainer = (props) => {
           </span>
         </li>
       </ul>
-      {active ? <Groups groups={user.groups} /> : <GroupForm />}
+      {active ? <GroupsView groups={user.groups} /> : <GroupForm />}
     </div>
   );
 };
 
-export default GroupEditContainer;
+export default GroupsEditContainer;

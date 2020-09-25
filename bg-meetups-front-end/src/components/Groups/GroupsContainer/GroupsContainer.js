@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useSelector } from 'react-redux';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Groups from "./Groups";
+import GroupsView from "../GroupsView";
 
-const GroupContainer = () => {
+const GroupsContainer = () => {
   const [query, setQuery] = useState('');
   const lowercasedQuery = query.toLowerCase();
   const groups = useSelector(state => state.groups);
@@ -26,18 +26,11 @@ const GroupContainer = () => {
       <div className='d-inline'>
         <form className=' d-inline'>
           <input type='text' name='query' placeholder="Search" onChange={handleChange} className='pl-2 my-2' />
-          {/* <span className='input-group-addon'>
-                    <FontAwesomeIcon
-                    icon={faSearch}
-                    size="lg"
-                    className=''
-                    />
-                </span> */}
         </form>
       </div>
-      <Groups groups={filteredGroups} />
+      <GroupsView groups={filteredGroups} />
     </div>
   );
 };
 
-export default GroupContainer;
+export default GroupsContainer;

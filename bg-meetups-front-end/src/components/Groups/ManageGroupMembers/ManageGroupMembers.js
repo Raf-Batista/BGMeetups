@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Member from './GroupMember';
-import InvitationForm from './GroupInvitationForm';
+import Member from '../GroupMember';
+import InvitationForm from '../GroupInvitationForm';
 
 const ManageGroupMembers = (props) => {
     let { members, history, userId, groupId } = props;

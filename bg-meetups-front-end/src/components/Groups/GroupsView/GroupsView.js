@@ -1,5 +1,5 @@
 import React from "react";
-import Group from "./Group";
+import Group from "../Group";
 import { Link } from 'react-router-dom';
 
 const Groups = (props) => {
