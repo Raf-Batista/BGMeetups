@@ -5,7 +5,7 @@ import GroupForm from "../GroupForm/GroupForm";
 import { useSelector } from "react-redux";
 import GroupsView from "../../Groups/GroupsView";
 
-const GroupsEditContainer = (props) => {
+const UserGroupsContainer = (props) => {
   const [active, setActive] = useState(true);
   const { history } = props;
   const user = useSelector((state) => state.user);
@@ -46,4 +46,4 @@ const GroupsEditContainer = (props) => {
   );
 };
 
-export default GroupsEditContainer;
+export default UserGroupsContainer;

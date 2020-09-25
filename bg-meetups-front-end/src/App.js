@@ -10,7 +10,7 @@ import Signup from "./components/Signup";
 import AccountContainer from "./components/Account/AccountContainer";
 import Group from './components/Groups/Group';
 import GroupsContainer from "./components/Groups/GroupsContainer";
-import GroupsEditContainer from "./components/GroupsCreate/GroupsEditContainer";
+import UserGroupsContainer from "./components/UserGroups/UserGroupsContainer";
 import ManageGroupsContainer from "./components/Groups/ManageGroupsContainer";
 import InvitationsContainer from "./components/Invitations/";
 import { MarketContainer, MarketEditContainer } from "./components/Market";
@@ -87,7 +87,7 @@ const App = (props) => {
                   <Route exact path="/groups/:id/edit" component={ManageGroupsContainer} />
                   <Route exact path="/market" component={MarketContainer} />
                   <Route exact path="/my-market" component={MarketEditContainer} />
-                  <Route exact path="/:id/groups" component={GroupsEditContainer} />
+                  <Route exact path="/:id/groups" component={UserGroupsContainer} />
                   <Route exact path="/invites" component={InvitationsContainer} />
                   <Route exact path="/groups/:id" component={Group} />
                   <Route
