@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import fetchEditUser from "../../async/fetchEditUser.js";
+import fetchEditUser from "../../../async/fetchEditUser.js";
 import { NavLink } from "react-router-dom";
 
 const Private = (props) => {

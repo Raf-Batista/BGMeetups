@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector, useDispatch } from "react-redux";
 import fetchLogin from "../../async/fetchLogin";
 import { NavLink } from 'react-router-dom';
+import useForm from '../../hooks/useForm';
 
 const Login = (props) => {
-  const [user, setUser] = useState({
+  const initialState = {
     username: "",
     email: "",
     password: "",
-  });
+  }
 
   const currentUser = useSelector(state => state.user);
   const dispatch = useDispatch();
@@ -20,23 +20,18 @@ const Login = (props) => {
     if(JSON.stringify(currentUser) !== '{}') props.history.push('/account');
   });
 
-  const handleChange = (e) => {
-    setUser({
-      ...user,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   const handleClick = (e) => {
     e.preventDefault();
     // send e.target.innerText to server for OAuth
   };
 
-  const handleSubmit =  (e) => {
-    e.preventDefault();
-    dispatch(fetchLogin(user));
+  const submit = () => {
+    dispatch(fetchLogin(values));
+    reset();
     props.history.push('/account')
   };
+
+  const { values, reset, handleChange, handleSubmit } = useForm(initialState, submit)
 
   return (
     <div className="container text-center mt-4 signin">
@@ -86,7 +81,7 @@ const Login = (props) => {
                 type="email"
                 placeholder="email"
                 onChange={handleChange}
-                value={user.email}
+                value={values.email}
                 required
               />
               <input
@@ -95,7 +90,7 @@ const Login = (props) => {
                 type="password"
                 placeholder="password"
                 onChange={handleChange}
-                value={user.password}
+                value={values.password}
                 required
               />
               <button className="btn mt-2" type="submit">

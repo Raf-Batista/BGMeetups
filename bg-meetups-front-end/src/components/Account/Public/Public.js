@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import fetchEditUser from '../../async/fetchEditUser.js';
+import fetchEditUser from '../../../async/fetchEditUser.js';
 
 const Public = (props) => {
     const { history, user } = props
     const [showEditForm, setShowEditForm] = useState(false);
     const [userForm, setUserForm] = useState({ username: '', imagePreview: '', id: user.id, avatar: null });
-    // const [avatar, setAvatar] = useState(null)
+    
     const dispatch = useDispatch();
 
     const handleClick = () => {
