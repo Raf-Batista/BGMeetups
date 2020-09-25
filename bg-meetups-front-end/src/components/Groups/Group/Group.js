@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const Group = (props) => {
     const {group} = props;
-    const user = useSelector(state => state.user);
     const manageLink = <Link to={{pathname: `/groups/${group.id}/edit`}}>Manage</Link>
+    const user = useSelector(state => state.user);
 
     return (
         <div className='container pt-2 text-center'>

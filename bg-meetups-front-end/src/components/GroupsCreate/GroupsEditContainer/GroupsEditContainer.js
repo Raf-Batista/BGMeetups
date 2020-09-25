@@ -3,21 +3,12 @@ import { NavLink } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import GroupForm from "../GroupForm/GroupForm";
 import { useSelector } from "react-redux";
-import GroupsView from "../GroupsView";
+import GroupsView from "../../Groups/GroupsView";
 
 const GroupsEditContainer = (props) => {
   const [active, setActive] = useState(true);
   const { history } = props;
   const user = useSelector((state) => state.user);
-
-  useEffect(() => {
-    // if (JSON.stringify(user) === "{}") {
-    //   history.push("/account");
-    //   toast.error("You Shall Not Pass!", {
-    //     position: toast.POSITION.TOP_CENTER,
-    //   });
-    // }
-  });
 
   const handleClick = () => {
     setActive(!active);

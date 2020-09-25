@@ -8,9 +8,11 @@ const GroupsContainer = () => {
   const [query, setQuery] = useState('');
   const lowercasedQuery = query.toLowerCase();
   const groups = useSelector(state => state.groups);
+
   const handleChange = (e) => {
     setQuery(e.target.value);
-  }
+  };
+
   const filteredGroups = groups.filter((group) => {
     if (group.name.toLowerCase().includes(lowercasedQuery)) {
       return group;

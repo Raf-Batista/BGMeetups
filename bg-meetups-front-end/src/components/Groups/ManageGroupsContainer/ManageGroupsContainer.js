@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import GroupEditForm from "../GroupEditForm";
+import GroupEditForm from "../../GroupsEdit/GroupEditForm";
 import ManageGroupMembers from "../ManageGroupMembers";
 
 const ManageGroupsContainer = (props) => {
