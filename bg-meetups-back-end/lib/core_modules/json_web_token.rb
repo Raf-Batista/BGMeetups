@@ -1,4 +1,6 @@
 module CoreModules::JsonWebToken
+  # https://levelup.gitconnected.com/api-authentication-with-jwt-and-cookies-featuring-rails-6-and-react-bd33a477c559
+  
     require 'jwt'
     JWT_SECRET = Rails.application.secrets.secret_key_base || ENV["SECRET_KEY_BASE"]
   

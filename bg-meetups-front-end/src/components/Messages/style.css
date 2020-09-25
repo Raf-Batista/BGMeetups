@@ -1,0 +1,13 @@
+.message-selection {
+    color: black;
+    font-weight: bold;
+  }
+
+.message-content {
+    overflow-wrap: break-word;
+  }
+
+.message-delete-btn {
+  background: red;
+  color: white;
+}

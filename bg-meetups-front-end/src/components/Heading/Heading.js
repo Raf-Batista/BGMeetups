@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink , useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import fetchLogout from '../../async/fetchLogout';
+import './style.css';
 
 
 const Heading = () => {
