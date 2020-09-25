@@ -7,7 +7,7 @@ import Home from "./components/Home/Home";
 import About from "./components/About";
 import Navbar from "./components/Navbar/Navbar";
 import Signup from "./components/Signup";
-import Account from "./components/Account";
+import AccountContainer from "./components/Account/AccountContainer";
 import { Group, GroupContainer, ManageGroupsContainer, GroupEditContainer } from "./components/Groups";
 import InvitationsContainer from "./components/Invitations/";
 import { MarketContainer, MarketEditContainer } from "./components/Market";
@@ -75,7 +75,7 @@ const App = (props) => {
                   <Route
                     exact
                     path="/account"
-                    render={(routeProps) => <Account {...routeProps} />} />
+                    render={(routeProps) => <AccountContainer {...routeProps} />} />
                   <Route
                     exact
                     path="/groups"
