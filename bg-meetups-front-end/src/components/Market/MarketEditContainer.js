@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import PacmanLoader from "react-spinners/PacmanLoader";
-import MarketEdit from "../components/MarketEdit";
+import MarketEdit from "./components/MarketEdit";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
