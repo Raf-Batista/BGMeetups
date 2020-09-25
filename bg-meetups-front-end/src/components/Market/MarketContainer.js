@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Market from "./Market.js";
 import { useSelector } from "react-redux";
-import PacmanLoader from "react-spinners/PacmanLoader";
+import PacmanLoader from "../UserGroups/UserGroupsContainer/node_modules/react-spinners/PacmanLoader";
 
 const MarketContainer = () => {
   const users = useSelector((state) => state.users);

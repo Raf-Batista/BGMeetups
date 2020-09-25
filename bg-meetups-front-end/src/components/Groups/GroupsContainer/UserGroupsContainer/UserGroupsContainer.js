@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
-import GroupForm from "../GroupForm/GroupForm";
+import GroupForm from "../../GroupForm/GroupForm";
 import { useSelector } from "react-redux";
-import GroupsView from "../../Groups/GroupsView";
+import GroupsView from "../../GroupsView";
 
 const UserGroupsContainer = (props) => {
   const [active, setActive] = useState(true);

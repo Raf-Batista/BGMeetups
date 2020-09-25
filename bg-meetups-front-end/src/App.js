@@ -10,7 +10,7 @@ import Signup from "./components/Signup";
 import AccountContainer from "./components/Account/AccountContainer";
 import Group from './components/Groups/Group';
 import GroupsContainer from "./components/Groups/GroupsContainer";
-import UserGroupsContainer from "./components/UserGroups/UserGroupsContainer";
+import UserGroupsContainer from "./components/Groups/UserGroupsContainer";
 import ManageGroupsContainer from "./components/Groups/ManageGroupsContainer";
 import InvitationsContainer from "./components/Invitations/";
 import { MarketContainer, MarketEditContainer } from "./components/Market";
