@@ -95,7 +95,7 @@ const Heading = () => {
                            <NavLink 
                             exact 
                             className="nav-link" 
-                            to="/my-groups" 
+                            to={`/${currentUser.id}/groups`} 
                             data-test="link-navbar">
                             My Groups
                           </NavLink>
