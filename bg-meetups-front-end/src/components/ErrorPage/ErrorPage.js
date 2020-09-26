@@ -2,6 +2,7 @@ import React from 'react'
 
 const ErrorPage = (props) => {
     const { history } = props;
+    
     const handleClick = () => {
         history.goBack();
     };
