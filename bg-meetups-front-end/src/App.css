@@ -51,7 +51,6 @@ body {
 .logo {
   height: 8em;
   background-color: #7d3cff;
-  
 }
 
 .invite-link {
@@ -72,8 +71,8 @@ body {
 
 .search-icon {
   position: fixed;
-  margin-top: .2em;
-  margin-left: 10.7em  ;
+  margin-top: 0.2em;
+  margin-left: 10.7em;
 }
 
 @media screen and (max-width: 576px) {
@@ -107,7 +106,6 @@ body {
   .img-form {
     margin-left: 4em;
   }
-
 }
 
 @media only screen and (min-width: 590px) {
@@ -130,10 +128,10 @@ body {
   }
 }
 
-@media (max-width: 575px) { 
+@media (max-width: 575px) {
   .logo img {
     height: 8em;
-    margin-left: 0em; 
+    margin-left: 0em;
   }
 
   .logo-name {
@@ -143,18 +141,18 @@ body {
   .user-account-icon {
     float: right;
     margin-top: 2.85em;
-    margin-right: 1.6em ;
+    margin-right: 1.6em;
   }
-  
+
   .user-account-text {
     display: none;
   }
- }
+}
 
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
   .logo img {
     height: 8em;
-    margin-left: 0em; 
+    margin-left: 0em;
   }
 
   .logo-name {
@@ -164,9 +162,9 @@ body {
   .user-account-icon {
     float: right;
     margin-top: 2.85em;
-    margin-right: .5em ;
+    margin-right: 0.5em;
   }
-  
+
   .user-account-text {
     float: right;
     margin-top: 3.9em;
@@ -181,26 +179,24 @@ body {
     width: 15em;
     text-align: left;
   }
- }
+}
 
- @media (min-width: 1200px) { 
-   .messages {
-     width: 50%;
-   }
+@media (min-width: 1200px) {
+  .messages {
+    width: 50%;
+  }
 
-    .message-subjects {
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 20em;
-      text-align: left;
-    }
-  } 
- 
-
+  .message-subjects {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 20em;
+    text-align: left;
+  }
+}
 
 .small-btn {
-  font-size: .85em;
+  font-size: 0.85em;
   border-radius: 4px;
   transition: 0.3s;
 }
@@ -215,5 +211,5 @@ body {
 }
 
 .invite-link {
-  color:  #7d3cff;
+  color: #7d3cff;
 }
