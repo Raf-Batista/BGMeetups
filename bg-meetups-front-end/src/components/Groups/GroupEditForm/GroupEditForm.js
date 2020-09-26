@@ -17,7 +17,7 @@ const GroupEditForm = (props) => {
         const params = { group: values, user_id: user.id, group_id: group.id }
         dispatch(editGroup(params));
         reset();
-        history.push('/my-groups');
+        history.push(`/${user.id}/groups`);
     };
 
     const { values, handleChange, handleSubmit, reset } = useForm(groupEditValues, submit);
