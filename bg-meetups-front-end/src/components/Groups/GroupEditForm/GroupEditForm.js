@@ -1,30 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React    from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import editGroup from "../../../async/editGroup";
+import useForm from '../../../hooks/useForm';
 
 const GroupEditForm = (props) => {
     const { group, history } = props;
     const dispatch = useDispatch();
     const user = useSelector(state => state.user)
-    const [groupForm, setGroupForm] = useState({
+   
+    const groupEditValues = {
         name: "",
         purpose: ""
-    });
-
-    const handleChange = (e) => {
-        setGroupForm({
-            ...groupForm,
-            [e.target.name]: e.target.value,
-        });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const params = { group: groupForm, user_id: user.id, group_id: group.id }
+    const submit = () => {
+        const params = { group: values, user_id: user.id, group_id: group.id }
         dispatch(editGroup(params));
+        reset();
         history.push('/my-groups');
     };
 
+    const { values, handleChange, handleSubmit, reset } = useForm(groupEditValues, submit);
 
     return (
         <form className="div-background" onSubmit={handleSubmit}>
@@ -34,7 +30,7 @@ const GroupEditForm = (props) => {
                     name="name"
                     type="text"
                     onChange={handleChange}
-                    value={groupForm.name}
+                    value={values.name}
                     placeholder={group.name}
                 />
                 <label className="d-block my-2">Purpose</label>
@@ -42,7 +38,7 @@ const GroupEditForm = (props) => {
                     name="purpose"
                     type="text"
                     onChange={handleChange}
-                    value={groupForm.purpose}
+                    value={values.purpose}
                     placeholder={group.purpose}
                 />
 

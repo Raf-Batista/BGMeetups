@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from 'react-redux';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import GroupSearchForm from '../GroupsSearchForm';
 import GroupsView from "../GroupsView";
 
 const GroupsContainer = () => {
@@ -21,7 +22,10 @@ const GroupsContainer = () => {
   });
 
   return (
-    <GroupsView groups={filteredGroups} handleChange={handleChange}/>
+    <div>
+      <GroupSearchForm handleChange={handleChange} />
+      <GroupsView groups={filteredGroups} />
+    </div>
   );
 };
 
