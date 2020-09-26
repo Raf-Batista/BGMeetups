@@ -1,6 +1,7 @@
 import React from 'react';
 import Private from '../Private';
 import Public from '../Public';
+import './AccountView.css';
 
 const AccountView = (props) => {
     const {handleClick, active, setActive, user} = props;
