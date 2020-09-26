@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import createGroup from "../../../async/createGroup";
 
 
-const GroupForm = (props) => {
+const GroupCreateForm = (props) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user);
   const [group, setGroup] = useState({
@@ -67,4 +67,4 @@ const GroupForm = (props) => {
   );
 };
 
-export default GroupForm;
+export default GroupCreateForm;
