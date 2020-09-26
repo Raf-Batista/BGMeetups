@@ -12,10 +12,6 @@ const ManageGroupsContainer = (props) => {
     const id = parseInt(props.match.params.id)
     const groups = user.groups || [];
     const group = groups.find((group) => group.id === id) || {};
-      
-    useEffect(() => {
-     // if (JSON.stringify(user) === "{}") props.history.push("/login");
-    });
   
     const handleClick = () => {
       setActive(!active);
