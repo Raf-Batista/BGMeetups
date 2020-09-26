@@ -8,7 +8,7 @@ import About from "./components/About";
 import Navbar from "./components/Navbar/Navbar";
 import Signup from "./components/Signup";
 import AccountContainer from "./components/Account/AccountContainer";
-import Group from './components/Groups/Group';
+import GroupView from './components/Groups/GroupView';
 import GroupsContainer from "./components/Groups/GroupsContainer";
 import UserGroupsContainer from "./components/Groups/UserGroupsContainer";
 import ManageGroupsContainer from "./components/Groups/ManageGroupsContainer";
@@ -89,7 +89,7 @@ const App = (props) => {
                   <Route exact path="/my-market" component={MarketEditContainer} />
                   <Route exact path="/:id/groups" component={UserGroupsContainer} />
                   <Route exact path="/invites" component={InvitationsContainer} />
-                  <Route exact path="/groups/:id" component={Group} />
+                  <Route exact path="/groups/:id" component={GroupView} />
                   <Route
                     exact
                     path="/messages"

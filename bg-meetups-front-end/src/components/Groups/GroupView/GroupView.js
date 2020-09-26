@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const Group = (props) => {
+const GroupView = (props) => {
     const {group} = props;
     const manageLink = <Link to={{pathname: `/groups/${group.id}/edit`}}>Manage</Link>
     const user = useSelector(state => state.user);
@@ -25,4 +25,4 @@ const Group = (props) => {
     )
 }
 
-export default Group
+export default GroupView;
