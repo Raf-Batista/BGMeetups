@@ -3,16 +3,26 @@ import Group from "../Group";
 import { Link } from 'react-router-dom';
 
 const Groups = (props) => {
-  let { groups } = props;
-  groups = !!groups ? groups : [] // If groups is not present due to refresh, set groups to an empty array to prevent an error
-
+  let { groups, handleChange } = props;
+  
   return (
+    <div className='container mt-5 text-center'>
+    <div className="heading">
+      <h2 className="d-block my-3">Groups</h2>
+      <span>Search through a list of all board game groups</span>
+    </div>
+    <div className='d-inline'>
+      <form className=' d-inline'>
+        <input type='text' name='query' placeholder="Search" onChange={handleChange} className='pl-2 my-2' />
+      </form>
+    </div>
+
     <div className='container text-center'>
       {
         groups.map((group) => <div key={group.id} className="div-background pb-2"><Group data-test="link-navbar" className='d-block mt-3' group={group}>{group.name}</Group></div>)
       }
     </div>
-
+  </div>
   );
 };
 

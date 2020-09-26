@@ -7,7 +7,8 @@ import GroupsView from "../GroupsView";
 const GroupsContainer = () => {
   const [query, setQuery] = useState('');
   const lowercasedQuery = query.toLowerCase();
-  const groups = useSelector(state => state.groups);
+  let groups = useSelector(state => state.groups);
+  groups = !!groups ? groups : [] // If groups is not truthy (nil) due to refresh, set groups to an empty array to prevent an error
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -20,18 +21,7 @@ const GroupsContainer = () => {
   });
 
   return (
-    <div className='container mt-5 text-center'>
-      <div className="heading">
-        <h2 className="d-block my-3">Groups</h2>
-        <span>Search through a list of all board game groups</span>
-      </div>
-      <div className='d-inline'>
-        <form className=' d-inline'>
-          <input type='text' name='query' placeholder="Search" onChange={handleChange} className='pl-2 my-2' />
-        </form>
-      </div>
-      <GroupsView groups={filteredGroups} />
-    </div>
+    <GroupsView groups={filteredGroups} handleChange={handleChange}/>
   );
 };
 
