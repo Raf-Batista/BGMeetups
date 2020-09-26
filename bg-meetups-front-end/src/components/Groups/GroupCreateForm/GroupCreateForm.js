@@ -1,32 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import createGroup from "../../../async/createGroup";
+import useForm from '../../../hooks/useForm';
 
 
 const GroupCreateForm = (props) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user);
-  const [group, setGroup] = useState({
+  
+  const groupValues = {
     name: "",
     purpose: "",
-  });
-
-  const handleChange = (e) => {
-    setGroup({
-      ...group,
-      [e.target.name]: e.target.value,
-    });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(createGroup(group, user.id));
-    setGroup({ name: "", purpose: "" });
+  const submit = () => {
+    dispatch(createGroup(values, user.id));
+    reset();
   };
 
   const handleClick = (e) => {
-    setGroup({ name: "", purpose: "" });
+    reset();
   };
+
+  const { values, handleSubmit, handleChange, reset} = useForm(groupValues, submit);
 
   return (
     <form className="div-background" onSubmit={handleSubmit}>
@@ -36,7 +32,7 @@ const GroupCreateForm = (props) => {
           name="name"
           type="text"
           onChange={handleChange}
-          value={group.name}
+          value={values.name}
           required
         />
         <label className="d-block my-2">Purpose</label>
@@ -44,7 +40,7 @@ const GroupCreateForm = (props) => {
           name="purpose"
           type="text"
           onChange={handleChange}
-          value={group.purpose}
+          value={values.purpose}
           required
         />
 
