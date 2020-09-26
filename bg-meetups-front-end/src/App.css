@@ -99,10 +99,6 @@ body {
     height: 15em;
   }
 
-  .home-img {
-    width: 20em;
-  }
-
   .img-form {
     margin-left: 4em;
   }
@@ -111,10 +107,6 @@ body {
 @media only screen and (min-width: 590px) {
   img {
     height: 35em;
-  }
-
-  .home-img {
-    width: 50em;
   }
 
   .img-form {
