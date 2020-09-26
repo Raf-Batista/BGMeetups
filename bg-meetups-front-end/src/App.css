@@ -78,7 +78,6 @@ body {
 
 @media screen and (max-width: 576px) {
   form {
-    /* width: 50%; */
     height: 40%;
   }
 
@@ -219,15 +218,7 @@ body {
   height: 26em;
 }
 
-.signin button {
-  width: 12em;
-  background-color: #7d3cff;
-  color: white;
-}
 
-.signin form {
-  width: 12em;
-}
 
 .invite-link {
   color:  #7d3cff;
