@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './GroupSearchForm.css';
 
 const GroupSearchForm = (props) => {
     const { handleChange } = props;
