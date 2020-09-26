@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import GroupForm from "../GroupForm/GroupForm";
+import GroupCreateForm from "../GroupCreateForm";
 import { useSelector } from "react-redux";
 import GroupsView from "../GroupsView";
 
@@ -40,7 +40,7 @@ const UserGroupsContainer = (props) => {
           </span>
         </li>
       </ul>
-      {active ? <GroupsView groups={user.groups} /> : <GroupForm />}
+      {active ? <GroupsView groups={user.groups} /> : <GroupCreateForm />}
     </div>
   );
 };
