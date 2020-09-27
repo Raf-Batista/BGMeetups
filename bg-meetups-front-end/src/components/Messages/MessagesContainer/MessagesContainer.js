@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import MessagesView from "../MessagesView";
-import MessageForm from "../MessageForm.js";
+import MessageForm from "../MessageForm/";
 //import PacmanLoader from "react-spinners/PacmanLoader";
 
 const MessagesContainer = (props) => {
