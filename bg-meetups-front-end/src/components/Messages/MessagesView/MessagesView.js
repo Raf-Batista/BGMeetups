@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import MessageView from '../MessageView';
+import './MessagesView.css';
 
 const MessagesView = () => {
   const [active, setActive] = useState(true);
