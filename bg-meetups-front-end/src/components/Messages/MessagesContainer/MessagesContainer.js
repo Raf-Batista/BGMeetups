@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import Messages from "../Messages";
+import MessagesView from "../MessagesView";
 import MessageForm from "../MessageForm.js";
 //import PacmanLoader from "react-spinners/PacmanLoader";
 
@@ -53,7 +53,7 @@ const MessagesContainer = (props) => {
       </ul>
 
       {active ? (
-        <Messages user={user} history={history} />
+        <MessagesView user={user} history={history} />
       ) : (
         <MessageForm user={user} history={history}/>
       )}
