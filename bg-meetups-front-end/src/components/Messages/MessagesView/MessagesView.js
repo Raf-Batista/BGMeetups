@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Message from '../Message';
-import SentMessage from '../SentMessage';
 
 const MessagesView = () => {
   const [active, setActive] = useState(true);
