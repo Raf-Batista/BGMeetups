@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import createMessage from '../../../async/createMessage';
+import useForm from '../../../hooks/useForm';
 
 const MessageForm = (props) => {
     const dispatch = useDispatch();
 
     const { user } = props
     const [message, setMessage] = useState({ recipient: '', subject: '', content: '' });
+
     const handleChange = (e) => {
         setMessage({ ...message, [e.target.name]: e.target.value })
     }
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(createMessage(message, user.id));
