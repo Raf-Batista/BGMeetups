@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import Message from '../Message';
+import MessageView from '../MessageView';
 
 const MessagesView = () => {
   const [active, setActive] = useState(true);
@@ -33,9 +33,9 @@ const MessagesView = () => {
         {
           active ?
 
-            receivedMessages.map((receivedMessage) => <Message key={receivedMessage.id} message={receivedMessage} />) :
+            receivedMessages.map((receivedMessage) => <MessageView key={receivedMessage.id} message={receivedMessage} />) :
 
-            sentMessages.map((sentMessage) => <Message key={sentMessage.id} message={sentMessage} />)
+            sentMessages.map((sentMessage) => <MessageView key={sentMessage.id} message={sentMessage} />)
         }
       </div>
     </div>
