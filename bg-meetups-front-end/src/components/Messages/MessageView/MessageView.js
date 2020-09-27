@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import './MessageView.css';
 
 const MessageView = (props) => {
     const { message } = props;
