@@ -25,7 +25,7 @@ import fetchCurrentUser from "./async/fetchCurrentUser";
 import fetchUsers from "./async/fetchUsers";
 import fetchGroups from "./async/fetchGroups";
 import fetchInvitations from "./async/fetchInvitations";
-import MessagesContainer from "./components/Messages";
+import MessagesContainer from "./components/Messages/MessagesContainer";
 import { ActionCableConsumer } from 'react-actioncable-provider';
 import CircleLoader from "react-spinners/CircleLoader";
 import Contact from "./components/Contact/Contact";
