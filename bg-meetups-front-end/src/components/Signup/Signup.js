@@ -1,46 +1,33 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector, useDispatch } from "react-redux";
 import fetchSignup from "../../async/fetchSignup";
 import { NavLink } from 'react-router-dom';
+import useForm from '../../hooks/useForm';
 
 const Signup = (props) => {
-  const [user, setUser] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
 
+  const initialUserState = { username: "", email: "", password: "" };
   const loggedIn = useSelector(state => state.user);
   const dispatch = useDispatch();
-  let { history } = props
+  const { history } = props;
 
   useEffect(() => {
     if(JSON.stringify(loggedIn) !== '{}') history.push('/');
   });
-
-  const handleChange = (e) => {
-    setUser({
-      ...user,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   const handleClick = (e) => {
     e.preventDefault();
     // send e.target.innerText to server for OAuth
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const submit = () => {
     dispatch(fetchSignup(user));
-    setUser({
-      username: "",
-      email: "",
-      password: "",
-    });
+    reset();
   };
+
+  const { values, handleChange, handleSubmit, reset } = useForm(initialUserState, submit);
+  const user = values;
 
   return (
     <div className="container text-center mt-4 signin">

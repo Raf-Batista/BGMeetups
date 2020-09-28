@@ -53,6 +53,7 @@ services:
       - CHOKIDAR_USEPOLLING=true
       - NODE_ENVIRONMENT=development
       - REACT_APP_URL=http://localhost:3000
+      - REACT_APP_WEBSOCKET=ws//localhost:3000/cable
     stdin_open: true
     tty: true
     depends_on:
