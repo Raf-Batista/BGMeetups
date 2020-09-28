@@ -7,15 +7,10 @@ import useForm from '../../hooks/useForm';
 import './Login.css';
 
 const Login = (props) => {
-  const initialState = {
-    username: "",
-    email: "",
-    password: "",
-  }
 
+  const initialUserState = { username: "", email: "", password: "" }
   const currentUser = useSelector(state => state.user);
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     if(JSON.stringify(currentUser) !== '{}') props.history.push('/account');
@@ -32,7 +27,8 @@ const Login = (props) => {
     props.history.push('/account')
   };
 
-  const { values, reset, handleChange, handleSubmit } = useForm(initialState, submit)
+  const { values, reset, handleChange, handleSubmit } = useForm(initialUserState, submit); 
+  const user = values;
 
   return (
     <div className="container text-center mt-4 signin">
@@ -82,7 +78,7 @@ const Login = (props) => {
                 type="email"
                 placeholder="email"
                 onChange={handleChange}
-                value={values.email}
+                value={user.email}
                 required
               />
               <input
@@ -91,7 +87,7 @@ const Login = (props) => {
                 type="password"
                 placeholder="password"
                 onChange={handleChange}
-                value={values.password}
+                value={user.password}
                 required
               />
               <button className="btn mt-2" type="submit">
