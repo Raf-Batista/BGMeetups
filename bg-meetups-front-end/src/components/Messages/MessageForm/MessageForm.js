@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import createMessage from '../../../async/createMessage';
 import useForm from '../../../hooks/useForm';
 
 const MessageForm = (props) => {
     const dispatch = useDispatch();
-
     const { user } = props
     const messageValues = { recipient: '', subject: '', content: '' };
     
@@ -14,6 +13,7 @@ const MessageForm = (props) => {
     }
 
     const { values, handleSubmit, handleChange } = useForm(messageValues, submit);
+    const message = values;
 
     return (
         <div>
@@ -24,7 +24,7 @@ const MessageForm = (props) => {
                         name="recipient"
                         onChange={handleChange}
                         type="text"
-                        value={values.recipient}
+                        value={message.recipient}
                         required
                     />
                     <label className="d-block my-2">Subject</label>
@@ -32,7 +32,7 @@ const MessageForm = (props) => {
                         name="subject"
                         onChange={handleChange}
                         type="text"
-                        value={values.subject}
+                        value={message.subject}
                         required
                     />
                     <label className="d-block my-2">Content</label>
@@ -40,7 +40,7 @@ const MessageForm = (props) => {
                         name="content"
                         onChange={handleChange}
                         type="text-area"
-                        value={values.content}
+                        value={message.content}
                         row='3'
                         className='description'
                         required
