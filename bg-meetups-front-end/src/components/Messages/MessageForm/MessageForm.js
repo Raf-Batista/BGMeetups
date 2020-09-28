@@ -4,15 +4,17 @@ import createMessage from '../../../async/createMessage';
 import useForm from '../../../hooks/useForm';
 
 const MessageForm = (props) => {
+    
     const dispatch = useDispatch();
     const { user } = props
-    const messageValues = { recipient: '', subject: '', content: '' };
+    const initialMessageState = { recipient: '', subject: '', content: '' };
     
     const submit = () => {
         dispatch(createMessage(values, user.id));
+        reset();
     }
 
-    const { values, handleSubmit, handleChange } = useForm(messageValues, submit);
+    const { values, handleSubmit, handleChange, reset } = useForm(initialMessageState, submit);
     const message = values;
 
     return (
