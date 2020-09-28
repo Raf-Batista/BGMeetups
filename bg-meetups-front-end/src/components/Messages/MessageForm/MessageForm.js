@@ -7,21 +7,14 @@ const MessageForm = (props) => {
     const dispatch = useDispatch();
 
     const { user } = props
-    const [message, setMessage] = useState({ recipient: '', subject: '', content: '' });
-
-    const handleChange = (e) => {
-        setMessage({ ...message, [e.target.name]: e.target.value })
-    }
+    const messageValues = { recipient: '', subject: '', content: '' };
     
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(createMessage(message, user.id));
-        setMessage({
-            recipient: '',
-            subject: '',
-            content: ''
-        });
+    const submit = () => {
+        dispatch(createMessage(values, user.id));
     }
+
+    const { values, handleSubmit, handleChange } = useForm(messageValues, submit);
+
     return (
         <div>
             <form className="mt-4 mx-lg-auto ml-sm-4 div-background mb-5" onSubmit={handleSubmit}>
@@ -31,7 +24,7 @@ const MessageForm = (props) => {
                         name="recipient"
                         onChange={handleChange}
                         type="text"
-                        value={message.recipient}
+                        value={values.recipient}
                         required
                     />
                     <label className="d-block my-2">Subject</label>
@@ -39,7 +32,7 @@ const MessageForm = (props) => {
                         name="subject"
                         onChange={handleChange}
                         type="text"
-                        value={message.subject}
+                        value={values.subject}
                         required
                     />
                     <label className="d-block my-2">Content</label>
@@ -47,7 +40,7 @@ const MessageForm = (props) => {
                         name="content"
                         onChange={handleChange}
                         type="text-area"
-                        value={message.content}
+                        value={values.content}
                         row='3'
                         className='description'
                         required
