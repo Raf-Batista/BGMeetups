@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Market from "./Market.js";
+import Market from "../MarketView/MarketView.js";
 import { useSelector } from "react-redux";
 
 const MarketContainer = () => {

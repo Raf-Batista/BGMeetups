@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import MarketEdit from "./MarketEdit";
+import MarketEdit from "../MarketEditView/MarketEditView";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
