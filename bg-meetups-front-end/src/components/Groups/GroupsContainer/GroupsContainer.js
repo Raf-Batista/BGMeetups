@@ -22,10 +22,10 @@ const GroupsContainer = () => {
   });
 
   return (
-    <div>
+    <>
       <GroupSearchForm handleChange={handleChange} />
       <GroupsView groups={filteredGroups} />
-    </div>
+    </>
   );
 };
 
