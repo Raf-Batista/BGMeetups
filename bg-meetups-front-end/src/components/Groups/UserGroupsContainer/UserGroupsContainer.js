@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import GroupCreateForm from "../GroupCreateForm";
 import { useSelector } from "react-redux";
-import GroupsView from "../GroupsView";
+import GroupView from "../GroupsView";
 
 const UserGroupsContainer = (props) => {
   const [active, setActive] = useState(true);
   const { history } = props;
   const user = useSelector((state) => state.user);
-
+  let groups = user.groups ? user.groups : []; // If groups is not truthy (nil) due to refresh, set groups to an empty array to prevent an error
   const handleClick = () => {
     setActive(!active);
   };
@@ -40,7 +40,7 @@ const UserGroupsContainer = (props) => {
           </span>
         </li>
       </ul>
-      {active ? <GroupsView groups={user.groups} /> : <GroupCreateForm />}
+      {active ? groups.map((group) => <div key={group.id} className="div-background pb-2"><GroupView data-test="link-navbar" className='d-block mt-3' group={group}>{group.name}</GroupView></div>) : <GroupCreateForm />}
     </div>
   );
 };
