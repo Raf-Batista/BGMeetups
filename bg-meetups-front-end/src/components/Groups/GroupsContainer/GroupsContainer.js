@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import GroupSearchForm from '../GroupsSearchForm';
-import GroupsView from "../GroupsView";
+import GroupView from "../GroupsView";
 
 const GroupsContainer = () => {
   const [query, setQuery] = useState('');
@@ -24,7 +24,11 @@ const GroupsContainer = () => {
   return (
     <>
       <GroupSearchForm handleChange={handleChange} />
-      <GroupsView groups={filteredGroups} />
+      <div className='container text-center'>
+        {
+          groups.map((group) => <div key={group.id} className="div-background pb-2"><GroupView data-test="link-navbar" className='d-block mt-3' group={group}>{group.name}</GroupView></div>)
+        }
+      </div>
     </>
   );
 };
