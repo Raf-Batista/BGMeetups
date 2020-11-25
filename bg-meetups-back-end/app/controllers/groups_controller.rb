@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
         group.user = user 
         group.save
         Membership.create(group_id: group.id, user_id: user.id)
+        
         if group.valid? then render json: group, status: :created and return end
 
         render json: {errors: "An error occured"}, status: :not_acceptable
