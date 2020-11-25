@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import GroupCreateForm from "../GroupCreateForm";
 import { useSelector } from "react-redux";
-import GroupView from "../GroupsView";
+import GroupView from "../GroupView";
 
 const UserGroupsContainer = (props) => {
   const [active, setActive] = useState(true);
