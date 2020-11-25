@@ -35,7 +35,8 @@ class UserSerializer < ActiveModel::Serializer
           name: group.name,
           purpose: group.purpose, 
           status: group.status,
-          memberships: group.get_members
+          memberships: group.get_members,
+          meetups: group.meetups
         }
     end 
   end 
