@@ -27,6 +27,13 @@ const userReducer = (state = {}, action) => {
     case "ACCEPT_INVITATION_SUCCESS": 
        const addedGroups = [...state.groups, action.payload.group]
         return {...state, groups: addedGroups}
+    case "FETCH_MEETUPS_SUCCESS": 
+        const updatedMeetups = state.groups.map(group =>  
+          group.id === action.payload.id? 
+          action.payload : 
+          group
+        )
+        return {...state, groups: updatedMeetups}
     default:
       return state;
   }
