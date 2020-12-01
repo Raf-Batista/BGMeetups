@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import GroupSearchForm from '../GroupsSearchForm';
-import GroupView from "../GroupsView";
+import GroupView from "../GroupView";
 
 const GroupsContainer = () => {
   const [query, setQuery] = useState('');

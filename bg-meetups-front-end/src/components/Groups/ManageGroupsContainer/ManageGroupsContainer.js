@@ -12,7 +12,7 @@ const ManageGroupsContainer = (props) => {
     const id = parseInt(props.match.params.id)
     const groups = user.groups || [];
     const group = groups.find((group) => group.id === id) || {};
-  
+    
     const handleClick = () => {
       setActive(!active);
     };
@@ -44,7 +44,7 @@ const ManageGroupsContainer = (props) => {
         </ul>
   
         {active ? (
-         <ManageGroupMembers members={group.memberships} history={history} userId={user.id} groupId={group.id}/>
+         <ManageGroupMembers members={group.memberships} meetups={group.meetups} history={history} userId={user.id} groupId={group.id}/>
         ) : (
          <GroupEditForm group={group} history={history}/>
         )}

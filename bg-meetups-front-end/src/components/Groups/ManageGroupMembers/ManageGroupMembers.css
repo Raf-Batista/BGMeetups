@@ -1,0 +1,9 @@
+.meetup-btn {
+    width: 8em;
+    background-color: #7d3cff;
+    color: white;
+}
+
+.meetup-form input {
+    height: 2.3em;
+}
