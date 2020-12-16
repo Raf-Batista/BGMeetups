@@ -5,3 +5,22 @@
     padding: 0;
     box-sizing: inherit;
 }
+
+html {
+    font-size: 62.5%; // 1 rem = 10 pixels
+}
+
+body {
+    font-family: "Alegreya", "Sans Serif";
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+// Colors 
+
+$primary-color-black: #1c2b2d; 
+$primary-color-dark-blue: #1f6f8b; 
+$primary-color-light-blue: #99a8b2;
+$primary-color-light-grey: #e6d5b8;
