@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink , useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import './Navbar.css';
+import './Navbar.scss';
 
 const Navbar = () => {
   const loggedIn = useSelector(state => state.user);
