@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
+import Sidenav from './components/Sidenav';
 import Home from "./components/Home/Home";
 import About from "./components/About";
 import Navbar from "./components/Navbar/Navbar";
@@ -64,6 +65,7 @@ const App = (props) => {
         <Router>
           <Heading />
           <Navbar />
+          <Sidenav />
           <ToastContainer />
           <ActionCableConsumer channel="WebNotificationsChannel" onReceived={handleReceived}>
             {
