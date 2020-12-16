@@ -1,0 +1,45 @@
+$primary-color-light-blue: #99a8b2;
+
+.sidenav {
+
+    &__checkbox {
+      //  display: none;
+     
+    }
+
+    &__button {
+        position: fixed;
+        height: 5rem;
+        width: 5rem;
+        top: 6rem;
+        right: 6rem;
+        background-color: $primary-color-light-blue;
+        border-radius: 50%;
+        z-index: 100;
+        cursor: pointer;
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+    }
+
+    &__background {
+        position: fixed;
+        height: 5rem;
+        width: 5rem;
+        top: 6rem;
+        right: 6rem;
+        background-color: $primary-color-light-blue;
+        border-radius: 50%;
+        transition: all 1s;
+    }
+
+    &__checkbox:checked ~ &__background {
+        transform: scale(500);
+    }
+    
+}
