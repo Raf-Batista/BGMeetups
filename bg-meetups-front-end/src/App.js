@@ -60,12 +60,12 @@ const App = (props) => {
   }, []); // empty array passed as second argument to prevent loop. https://stackoverflow.com/questions/53243203/react-hook-useeffect-runs-continuously-forever-infinite-loop
 
   return (
-    <div className="page-container">
-      <div className="content-wrap">
+    <div>
+      <div>
         <Router>
+        <Sidenav />
           <Heading />
           <Navbar />
-          <Sidenav />
           <ToastContainer />
           <ActionCableConsumer channel="WebNotificationsChannel" onReceived={handleReceived}>
             {
