@@ -23,7 +23,7 @@ services:
     environment:
       PG_USER: postgres
       PG_PASSWORD: postgres
-      PG_DATABASE: bg_meetups_back_end_development
+     # PG_DATABASE: bg_meetups_back_end_development
       PG_PORT: 5432
       PG_HOST: db
       REDIS_URL: redis://redis:6379/0
